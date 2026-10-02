@@ -18,3 +18,10 @@ Replace placeholder blocks with approved content only. Hero artwork, concept art
 
 ## Future work
 Canonical assets and lore; map interaction; kingdom and goddess visual identities; populated library filters; release integration; page transitions. Current filters work against an empty collection and report that no entries are published.
+
+## EN / TR localization
+English is the default. The header switch changes all current interface text, document titles, accessible labels and placeholders in place; proper names remain unchanged. `assets/i18n.js` stores the central keyed EN/TR message catalog. `assets/site.js` applies translations and persists explicit selection in `localStorage` under `avaris.language`. Storage errors are caught; the switch still works for the current page if browser storage is unavailable.
+
+For new lore or documents, add a stable semantic key to the message catalog with `en` and `tr` values and use `data-i18n="your.key"` on its text element. Existing interface source text is bound once to catalog keys. Filters retain stable English option values while their visible labels are translated. No separate language copies or routes are needed.
+
+The global palette uses warm charcoal, ivory and restrained aged brass. Shared CSS variables can later be overridden within kingdom pages without changing the neutral global frame.
