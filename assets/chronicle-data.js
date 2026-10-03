@@ -85,6 +85,41 @@ Object.assign(window.AvarisLocale.messages, {
     "tr": "Kitap sayfalarına dön"
   }
 });
+Object.assign(window.AvarisLocale.messages, {
+  "chronicle.art.opening-panorama": {
+    "en": "A continuous landscape of seas, mountains, forests and settlements.",
+    "tr": "Denizler, dağlar, ormanlar ve yerleşimlerden oluşan kesintisiz bir manzara."
+  },
+  "chronicle.art.terrain-portrait": {
+    "en": "A settlement and roads following mountain and river.",
+    "tr": "Dağa ve nehre uyum sağlayan bir yerleşim ve yollar."
+  },
+  "chronicle.art.seven-ways-scene": {
+    "en": "Seven ways of knowing within one connected settlement scene.",
+    "tr": "Tek bir yerleşim sahnesinde yedi farklı anlayış biçimi."
+  },
+  "chronicle.art.sisters-portrait": {
+    "en": "Seven anonymous sisters beside a river.",
+    "tr": "Nehir kıyısında yedi isimsiz kız kardeş."
+  },
+  "chronicle.art.seven-currents": {
+    "en": "Seven currents converging into one landscape.",
+    "tr": "Tek bir manzarada birleşen yedi akış."
+  },
+  "chronicle.art.inheritance-scene": {
+    "en": "A concealed object passing between generations.",
+    "tr": "Kuşaklar arasında aktarılan, bütünüyle sarılı bir nesne."
+  },
+  "chronicle.art.memory-scene": {
+    "en": "A settlement, old road and weathered records.",
+    "tr": "Bir yerleşim, eski bir yol ve aşınmış kayıtlar."
+  },
+  "chronicle.art.roads-scene": {
+    "en": "Travellers and trade meeting at a river crossing.",
+    "tr": "Nehir geçidinde buluşan yolcular ve ticaret."
+  }
+});
+Object.assign(window.AvarisLocale.messages, {"chronicle.art.memory-road":{"en":"An old road and weathered ruins beside a river.","tr":"Nehir kıyısında eski bir yol ve aşınmış kalıntılar."}});
 window.AvarisChronicles = {
   "book": {
     "titleKey": "chronicle.book"
@@ -344,181 +379,213 @@ window.AvarisChronicles = {
         }
       ],
       "illustrations": [
-  {
-    "id": "world-emerging",
-    "anchor": "creation.text.00.00",
-    "src": "../assets/chronicle-art/world-emerging.webp",
-    "placement": "half-page",
-    "height": 145,
-    "altKey": "chronicle.art.world-emerging"
-  },
-  {
-    "id": "settlement",
-    "anchor": "creation.text.02.00",
-    "src": "../assets/chronicle-art/settlement.webp",
-    "placement": "half-page",
-    "height": 145,
-    "altKey": "chronicle.art.settlement"
-  },
-  {
-    "id": "stars",
-    "anchor": "creation.text.04.00",
-    "src": "../assets/chronicle-art/seven-ways.webp",
-    "placement": "outer-margin",
-    "height": 100,
-    "altKey": "chronicle.art.stars",
-    "crop": [
-      0,
-      0,
-      0.278,
-      0.51
-    ],
-    "sourceAspect": 2.5
-  },
-  {
-    "id": "forge",
-    "anchor": "creation.text.04.01",
-    "src": "../assets/chronicle-art/seven-ways.webp",
-    "placement": "outer-margin",
-    "height": 100,
-    "altKey": "chronicle.art.forge",
-    "crop": [
-      0.28,
-      0,
-      0.23,
-      0.51
-    ],
-    "sourceAspect": 2.5
-  },
-  {
-    "id": "truth",
-    "anchor": "creation.text.04.02",
-    "src": "../assets/chronicle-art/seven-ways.webp",
-    "placement": "outer-margin",
-    "height": 100,
-    "altKey": "chronicle.art.truth",
-    "crop": [
-      0.51,
-      0,
-      0.25,
-      0.51
-    ],
-    "sourceAspect": 2.5
-  },
-  {
-    "id": "healing",
-    "anchor": "creation.text.04.03",
-    "src": "../assets/chronicle-art/seven-ways.webp",
-    "placement": "outer-margin",
-    "height": 100,
-    "altKey": "chronicle.art.healing",
-    "crop": [
-      0.76,
-      0.04,
-      0.24,
-      0.48
-    ],
-    "sourceAspect": 2.5
-  },
-  {
-    "id": "nature",
-    "anchor": "creation.text.04.04",
-    "src": "../assets/chronicle-art/seven-ways.webp",
-    "placement": "outer-margin",
-    "height": 100,
-    "altKey": "chronicle.art.nature",
-    "crop": [
-      0,
-      0.53,
-      0.33,
-      0.47
-    ],
-    "sourceAspect": 2.5
-  },
-  {
-    "id": "shadows",
-    "anchor": "creation.text.04.05",
-    "src": "../assets/chronicle-art/seven-ways.webp",
-    "placement": "outer-margin",
-    "height": 100,
-    "altKey": "chronicle.art.shadows",
-    "crop": [
-      0.35,
-      0.51,
-      0.27,
-      0.49
-    ],
-    "sourceAspect": 2.5
-  },
-  {
-    "id": "fire",
-    "anchor": "creation.text.04.06",
-    "src": "../assets/chronicle-art/seven-ways.webp",
-    "placement": "outer-margin",
-    "height": 100,
-    "altKey": "chronicle.art.fire",
-    "crop": [
-      0.64,
-      0.51,
-      0.36,
-      0.49
-    ],
-    "sourceAspect": 2.5
-  },
-  {
-    "id": "seven-sisters",
-    "anchor": "creation.text.07.00",
-    "src": "../assets/chronicle-art/seven-sisters.webp",
-    "placement": "half-page",
-    "height": 175,
-    "altKey": "chronicle.art.seven-sisters"
-  },
-  {
-    "id": "seven-paths",
-    "anchor": "creation.text.11.00",
-    "src": "../assets/chronicle-art/seven-paths.webp",
-    "placement": "half-page",
-    "height": 125,
-    "altKey": "chronicle.art.seven-paths"
-  },
-  {
-    "id": "inheritance",
-    "anchor": "creation.text.13.00",
-    "src": "../assets/chronicle-art/inheritance.webp",
-    "placement": "half-page",
-    "height": 115,
-    "altKey": "chronicle.art.inheritance"
-  },
-  {
-    "id": "history-memory",
-    "anchor": "creation.text.16.00",
-    "src": "../assets/chronicle-art/history-memory.webp",
-    "placement": "half-page",
-    "height": 105,
-    "altKey": "chronicle.art.history-memory"
-  },
-  {
-    "id": "converging-roads",
-    "anchor": "creation.text.18.00",
-    "src": "../assets/chronicle-art/converging-roads.webp",
-    "placement": "half-page",
-    "height": 145,
-    "altKey": "chronicle.art.converging-roads"
-  },
-  {
-    "id": "final-harmony",
-    "anchor": "creation.text.21.00",
-    "src": "../assets/chronicle-art/final-harmony.webp",
-    "placement": "half-page",
-    "height": 90,
-    "altKey": "chronicle.art.final-harmony"
-  }
-],
+        {
+          "id": "opening-panorama",
+          "src": "../assets/chronicle-art/interior-v4/opening-panorama.webp",
+          "altKey": "chronicle.art.opening-panorama"
+        },
+        {
+          "id": "terrain-portrait",
+          "src": "../assets/chronicle-art/interior-v4/terrain-portrait.webp",
+          "altKey": "chronicle.art.terrain-portrait"
+        },
+        {
+          "id": "seven-ways-scene",
+          "src": "../assets/chronicle-art/interior-v4/seven-ways-scene.webp",
+          "altKey": "chronicle.art.seven-ways-scene"
+        },
+        {
+          "id": "sisters-portrait",
+          "src": "../assets/chronicle-art/interior-v4/sisters-portrait.webp",
+          "altKey": "chronicle.art.sisters-portrait"
+        },
+        {
+          "id": "seven-currents",
+          "src": "../assets/chronicle-art/interior-v4/seven-currents.webp",
+          "altKey": "chronicle.art.seven-currents"
+        },
+        {
+          "id": "inheritance-scene",
+          "src": "../assets/chronicle-art/interior-v4/inheritance-scene.webp",
+          "altKey": "chronicle.art.inheritance-scene"
+        },
+        {
+          "id": "memory-scene",
+          "src": "../assets/chronicle-art/interior-v4/memory-scene.webp",
+          "altKey": "chronicle.art.memory-scene"
+        },
+        {
+          "id": "roads-scene",
+          "src": "../assets/chronicle-art/interior-v4/roads-scene.webp",
+          "altKey": "chronicle.art.roads-scene"
+        },
+        {
+          "id": "world-emerging",
+          "src": "../assets/chronicle-art/world-emerging.webp",
+          "altKey": "chronicle.art.world-emerging"
+        },
+        {
+          "id": "memory-road",
+          "src": "../assets/chronicle-art/interior-v4/memory-road.webp",
+          "altKey": "chronicle.art.memory-road"
+        },
+        {
+          "id": "final-harmony",
+          "src": "../assets/chronicle-art/final-harmony.webp",
+          "altKey": "chronicle.art.final-harmony"
+        }
+      ],
       "treatments": {
         "creation.text.16.01": {
           "slot": "reserved-manuscript-detail"
         }
-      }
+      },
+      "spreads": [
+        {
+          "id": "opening",
+          "pages": [
+            {
+              "layout": "opening",
+              "beats": [
+                0
+              ],
+              "heading": true,
+              "dropcap": true
+            },
+            {
+              "layout": "panorama",
+              "beats": [],
+              "art": "opening-panorama"
+            }
+          ],
+          "cross": "opening-panorama"
+        },
+        {
+          "id": "land",
+          "pages": [
+            {
+              "layout": "horizontal",
+              "beats": [
+                1
+              ],
+              "art": "world-emerging",
+              "dropcap": true
+            },
+            {
+              "layout": "portrait-pair",
+              "beats": [
+                2,
+                3
+              ],
+              "art": "terrain-portrait"
+            }
+          ]
+        },
+        {
+          "id": "seven-ways",
+          "pages": [
+            {
+              "layout": "seven-lines",
+              "beats": [
+                4,
+                5,
+                6
+              ]
+            },
+            {
+              "layout": "plate",
+              "beats": [],
+              "art": "seven-ways-scene"
+            }
+          ]
+        },
+        {
+          "id": "sisters",
+          "pages": [
+            {
+              "layout": "prose",
+              "beats": [
+                7,
+                8,
+                9,
+                10
+              ],
+              "dropcap": true
+            },
+            {
+              "layout": "plate",
+              "beats": [],
+              "art": "sisters-portrait"
+            }
+          ]
+        },
+        {
+          "id": "powers-inheritance",
+          "pages": [
+            {
+              "layout": "portrait-pair",
+              "beats": [
+                11,
+                12
+              ],
+              "art": "seven-currents",
+              "dropcap": true
+            },
+            {
+              "layout": "horizontal",
+              "beats": [
+                13,
+                14
+              ],
+              "art": "inheritance-scene"
+            }
+          ]
+        },
+        {
+          "id": "memory",
+          "pages": [
+            {
+              "layout": "multi-editorial",
+              "beats": [
+                15,
+                16
+              ],
+              "art": "memory-scene",
+              "secondaryArt": "memory-road",
+              "dropcap": true
+            },
+            {
+              "layout": "horizontal",
+              "beats": [
+                17,
+                18
+              ],
+              "art": "roads-scene"
+            }
+          ]
+        },
+        {
+          "id": "final",
+          "pages": [
+            {
+              "layout": "prose",
+              "beats": [
+                19,
+                20,
+                21,
+                22
+              ]
+            },
+            {
+              "layout": "closure",
+              "beats": [
+                23
+              ],
+              "art": "final-harmony"
+            }
+          ]
+        }
+      ]
     }
   ]
 };

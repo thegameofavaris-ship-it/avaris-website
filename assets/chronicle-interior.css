@@ -1,0 +1,79 @@
+/* Curated illustrated-book grid. Art slots and type are never sized to content. */
+:root{--interior-paper:#eee4d1;--interior-ink:#29251f;--interior-rust:#914d39;--interior-frame:#a4664d80}
+.reader-stage{padding:24px 4vw 18px}
+.book-stage{width:min(100%,680px)}
+.book-leaf,.book-leaf[data-worn=true]{padding:27px 37px 17px;gap:12px;grid-template-rows:20px minmax(0,1fr) 20px;background:radial-gradient(ellipse at 16% 82%,#9c75430b,transparent 50%),linear-gradient(96deg,#b29e7620,transparent 22%,#ffffff0a 60%,#99816212),var(--interior-paper);color:var(--interior-ink)}
+.book-leaf::before{opacity:.035}
+.book-leaf>.print-frame{position:absolute;inset:17px 21px 15px;z-index:4;border:1px solid var(--interior-frame);pointer-events:none}
+.print-frame::before,.print-frame::after{content:'';position:absolute;width:9px;height:9px;border:1px solid #9c654b65}
+.print-frame::before{left:-3px;top:-3px;border-right:0;border-bottom:0}.print-frame::after{right:-3px;bottom:-3px;border-left:0;border-top:0}
+.book-leaf>.page-corner{position:absolute;z-index:5}
+.leaf-running{font:9px/20px 'Times New Roman',Times,serif;letter-spacing:.12em;color:#805b49;opacity:1;z-index:4;max-width:100%}
+.leaf-folio{font:12px/20px 'Times New Roman',Times,serif;color:#805b49;z-index:4}
+.leaf-body{position:relative;z-index:3;width:100%;max-width:none;min-width:0;font-family:'Times New Roman',Times,serif;font-size:16.5px;line-height:1.5;color:var(--interior-ink);display:block;overflow:visible}
+.page-composition{position:absolute;inset:0;min-height:0;min-width:0}
+.prose-region{position:absolute;left:0;top:0;width:100%;height:100%;min-height:0;overflow:visible;max-width:58ch}
+.leaf-body p,.leaf-body p.opening,.leaf-body p.creed,.leaf-body p.law{font:inherit;color:var(--interior-ink);opacity:1;text-align:left;margin:0 0 8px;text-indent:0;overflow-wrap:normal;hyphens:none}
+.leaf-body p+p{ text-indent:1em }
+.leaf-body p.continuation{ text-indent:0 }
+.leaf-body p:last-child{margin-bottom:0}
+.leaf-body .seven-line{margin-bottom:11px;text-indent:0}
+.leaf-body .seven-line+p:not(.seven-line){margin-top:22px;text-indent:0}
+.leaf-body p.dropcap::first-letter{float:left;font-size:3.15em;line-height:.86;padding:4px 6px 0 0;color:var(--interior-rust)}
+.chapter-heading{font-family:'Times New Roman',Times,serif;font-weight:400;text-align:left;line-height:1.15;margin:0 0 27px;color:var(--interior-rust)}
+.chapter-heading .chapter-number{font-size:16px;letter-spacing:.12em;margin-bottom:15px;color:var(--interior-rust)}
+.chapter-heading .chapter-title{font-size:27px;letter-spacing:.065em;line-height:1.18}
+.chapter-heading::after{width:68px;height:1px;margin:16px 0 0;background:#a4664d80}
+.manuscript-illustration,.manuscript-illustration[data-art=history-memory],.manuscript-illustration[data-art=final-harmony]{position:absolute;margin:0;opacity:1;mix-blend-mode:multiply;width:100%;height:100%;max-height:none;max-width:none;min-height:0;display:block;pointer-events:none}
+.manuscript-illustration:not([data-cropped])>img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}
+.manuscript-illustration.LARGE_VERTICAL_ART img{object-fit:contain}
+/* A: one uninterrupted right-dominant plate through the gutter. */
+.leaf-body[data-layout=opening] .prose-region{width:47%;height:100%}
+.chronicle-book>.cross-spread-art{position:absolute;z-index:2;left:22%;top:9%;width:76%;height:84%;opacity:1;mix-blend-mode:multiply;pointer-events:none}
+.cross-spread-art img{width:100%;height:100%;object-fit:contain}
+.chronicle-book::after{z-index:3}
+/* B: stable half-page prose / portrait grid. */
+.leaf-body[data-layout=portrait-pair] .prose-region{width:47%;height:100%}
+.leaf-body[data-layout=portrait-pair] .LARGE_VERTICAL_ART{left:52%;top:0;width:48%;height:100%}
+/* C: two diagonal prose blocks and two substantial related paintings. */
+.leaf-body[data-layout=multi-editorial] .prose-region[data-slot="0"]{left:0;top:0;width:45%;height:48%}
+.leaf-body[data-layout=multi-editorial] .prose-region[data-slot="1"]{left:52%;top:54%;width:48%;height:46%}
+.leaf-body[data-layout=multi-editorial] .LARGE_HORIZONTAL_ART{left:49%;top:0;width:51%;height:46%}
+.leaf-body[data-layout=multi-editorial] .SECONDARY_HORIZONTAL_ART{left:0;top:55%;width:46%;height:40%}
+/* Selected text-led pages: a fixed prose region and a large landscape plate. */
+.leaf-body[data-layout=horizontal] .prose-region{height:51%;width:100%}
+.leaf-body[data-layout=horizontal] .LARGE_HORIZONTAL_ART{left:0;top:53%;width:100%;height:47%}
+.leaf-body[data-layout=plate] .LARGE_VERTICAL_ART{left:0;top:0;width:100%;height:100%}
+.leaf-body[data-layout=prose] .prose-region{max-width:52ch}
+.leaf-body[data-layout=seven-lines] .prose-region{height:100%;max-width:52ch}
+.leaf-body[data-layout=closure] .SMALL_ORNAMENT{left:5%;top:16%;width:90%;height:45%}
+.leaf-body[data-layout=closure] .prose-region{left:0;top:73%;height:27%;width:100%;text-align:center}
+.leaf-body[data-layout=closure] p.law{font:inherit;text-indent:0;text-align:center;letter-spacing:.025em;color:#754231;margin:0}
+.leaf-body[data-layout=closure] p.law::before{content:'';display:block;width:55px;height:1px;background:var(--interior-frame);margin:0 auto 22px}
+.leaf-body[data-layout=prose] p.creed{color:#754231;text-indent:0;margin-block:16px}
+.paper-turn{overflow:hidden;background:#eee4d1}
+.paper-turn .turn-illustration{opacity:1!important}
+.reader-measure{position:fixed;left:-10000px;top:0;visibility:hidden;pointer-events:none;max-width:none}
+@media(min-width:1000px) and (min-height:640px) and (min-aspect-ratio:13/10){
+ .book-stage{width:min(92vw,calc((100dvh - 205px)*1.95),1360px)}
+ .chronicle-book{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .right-leaf{display:grid}
+ .left-leaf{padding-left:42px;padding-right:31px;background:linear-gradient(90deg,#b69b7612,transparent 20%,transparent 86%,#7c634739),var(--interior-paper)}
+ .right-leaf{padding-left:31px;padding-right:42px;background:linear-gradient(90deg,#7c634739,transparent 15%,#b69b7610 95%),var(--interior-paper)}
+ .chronicle-book::after{content:'';position:absolute;left:50%;top:0;bottom:0;width:10px;transform:translateX(-50%);background:linear-gradient(90deg,#48371b06,#48371b45,#48371b08);pointer-events:none}
+}
+@media(max-width:999px){.leaf-body{font-size:17px;line-height:1.5}}
+/* One physical leaf; portrait half-pages are explicitly split into prose + plate. */
+.reader-shell[data-mode=single] .leaf-body[data-layout=opening] .prose-region{width:100%;height:53%}
+.reader-shell[data-mode=single] .leaf-body[data-layout=opening] .HERO_SPREAD_ART{left:0;top:59%;width:100%;height:41%}
+.reader-shell[data-mode=single] .chapter-heading{margin-bottom:23px}
+.reader-shell[data-mode=single] .leaf-body[data-layout=horizontal] .prose-region{height:48%}
+.reader-shell[data-mode=single] .leaf-body[data-layout=horizontal] .LARGE_HORIZONTAL_ART{top:55%;height:45%}
+@media(max-width:850px){.reader-stage{padding:22px 5vw 18px}.book-leaf{padding-inline:36px}.leaf-running{font-size:8.5px}}
+@media(max-width:520px){
+ .reader-stage{padding:16px 15px 12px}.book-stage{width:100%}.book-leaf{padding:24px 25px 14px;gap:11px}.book-leaf>.print-frame{inset:15px 13px 13px}
+ .leaf-body{font-size:17px;line-height:1.5}.chapter-heading .chapter-title{font-size:25px}.leaf-running{font-size:8px;letter-spacing:.09em}
+ .reader-shell[data-mode=single] .leaf-body[data-layout=opening] .prose-region{height:57%}
+ .reader-shell[data-mode=single] .leaf-body[data-layout=opening] .HERO_SPREAD_ART{top:62%;height:38%}
+}
+@media(max-height:540px){.reader-stage{padding:12px 20px}.book-leaf{padding-block:20px;gap:8px;grid-template-rows:16px minmax(0,1fr) 16px}.leaf-running{line-height:16px}.leaf-folio{line-height:16px}.chapter-heading .chapter-title{font-size:25px}}
