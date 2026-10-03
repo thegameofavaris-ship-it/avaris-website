@@ -1,0 +1,51 @@
+{
+  "yuna": {
+    "kingdom": "Equira",
+    "master": "assets/goddesses/masters/yuna-approved-master.png",
+    "web": "assets/goddesses/web/yuna-approved-sheet.webp",
+    "sha256": "973d297e30c921763eb6bc3ef95222c0d4e8e561f55d291053fd59b88cb6b438",
+    "designLocked": true
+  },
+  "nora": {
+    "kingdom": "Nymora",
+    "master": "assets/goddesses/masters/nora-approved-master.png",
+    "web": "assets/goddesses/web/nora-approved-sheet.webp",
+    "sha256": "99717df68001ce73490d571a82d88adabdee70bf9abb20bba7d0849ef6b36668",
+    "designLocked": true
+  },
+  "talia": {
+    "kingdom": "Veritasa",
+    "master": "assets/goddesses/masters/talia-approved-master.png",
+    "web": "assets/goddesses/web/talia-approved-sheet.webp",
+    "sha256": "5f0ac1b5da6887f54e1db42e91de102cc62b0c41c124adc3552af58530884bc7",
+    "designLocked": true
+  },
+  "dara": {
+    "kingdom": "Drakvar",
+    "master": "assets/goddesses/masters/dara-approved-master.png",
+    "web": "assets/goddesses/web/dara-approved-sheet.webp",
+    "sha256": "99ce741f9d0264348a363ec467533074e26b310c9d31c03c57887590b07c6175",
+    "designLocked": true
+  },
+  "lena": {
+    "kingdom": "Armonia",
+    "master": "assets/goddesses/masters/lena-approved-master.png",
+    "web": "assets/goddesses/web/lena-approved-sheet.webp",
+    "sha256": "cf9745b88027110eb5d0cfcae59fe17622f8b755fd7d984c6cd8a7fd867a5950",
+    "designLocked": true
+  },
+  "kira": {
+    "kingdom": "Ignivar",
+    "master": "assets/goddesses/masters/kira-approved-master.png",
+    "web": "assets/goddesses/web/kira-approved-sheet.webp",
+    "sha256": "2da5942efadcc65092999cfe99d866d1cec81997e3c18fda327ca1764517b03a",
+    "designLocked": true
+  },
+  "nilera": {
+    "kingdom": "Serapha",
+    "master": "assets/goddesses/masters/nilera-approved-master.png",
+    "web": "assets/goddesses/web/nilera-approved-sheet.webp",
+    "sha256": "fc59ee5d38008d1915d038ccf69871487a20ce22c821f7e867a420c6bfe8a6a5",
+    "designLocked": true
+  }
+}
