@@ -26,17 +26,24 @@
  }
  function composition(page){
   const root=document.createElement('div');root.className='page-composition';
-  const count=page.layout==='multi-editorial'?2:1;
+  const count=page.slotBeats?.length||(page.layout==='multi-editorial'?2:1);
   if(!['plate','panorama'].includes(page.layout))for(let i=0;i<count;i++){
    const slot=document.createElement('div');slot.className='prose-region';slot.dataset.slot=i;
    if(page.heading&&i===0)slot.append(heading());
-   (page.groups?.[i]||[]).forEach((group,j)=>slot.append(paragraph(group,page.dropcap&&i===0&&j===0)));root.append(slot);
+   (page.groups?.[i]||[]).forEach((group,j)=>slot.append(proseElement(page,group,page.dropcap&&i===0&&j===0)));root.append(slot);
   }
-  if(page.art&&page.layout!=='panorama'){
-   const scale=page.layout==='opening'?'HERO_SPREAD_ART':page.layout==='closure'?'SMALL_ORNAMENT':['portrait-pair','plate'].includes(page.layout)?'LARGE_VERTICAL_ART':'LARGE_HORIZONTAL_ART';root.append(illustration(page.art,scale));
+  if(page.art&&!page.originLayout&&!['panorama','sisters-prose','seven-lines-tree','world-peoples','inheritance-prose','memory-study','present-world','finale'].includes(page.layout)){
+   const scale=page.layout==='opening'?'HERO_SPREAD_ART':['closure','finale'].includes(page.layout)?'SMALL_ORNAMENT':['portrait-pair','plate'].includes(page.layout)?'LARGE_VERTICAL_ART':'LARGE_HORIZONTAL_ART';const figure=illustration(page.art,scale);if(page.edge)figure.dataset.edge=page.edge;root.append(figure);
   }
   if(page.secondaryArt)root.append(illustration(page.secondaryArt,'SECONDARY_HORIZONTAL_ART'));
   return root;
+ }
+ function proseElement(page,group,dropcap=false){
+  const p=paragraph(group,dropcap),layout=page.originLayout||page.layout;
+  const before={"inheritance-prose":15,"memory-study":17,"present-world":20,"finale":23},after={"world-peoples":3};
+  if((before[layout]===group[0]?.beat&&group[0]?.start===0)||(after[layout]===group.at(-1)?.beat&&group.at(-1)?.end===group.at(-1)?.length)){const region=document.createElement('div');region.className='flow-illustrated '+layout+'-flow';const figure=illustration(page.art,layout==='finale'?'CLOSING_SYMBOL_ART':'INLINE_MANUSCRIPT_ART');if(before[layout]!==undefined)region.append(figure,p);else region.append(p,figure);return region;}
+  if(layout==='seven-lines-tree'&&group[0]?.beat===5&&group[0]?.start===0){const region=document.createElement('div');region.className='tree-paragraph';region.append(illustration(page.art,'BOTANICAL_STUDY_ART'),p);return region;}
+  if(layout==='sisters-prose'&&group[0]?.beat===11&&group[0]?.start===0){const region=document.createElement('div');region.className='powers-paragraph';region.append(illustration(page.art,'MANUSCRIPT_SYMBOL_ART'),p);return region;}return p;
  }
  function sameAnchor(part,a){return part.key===a?.key&&(a.fraction??0)>=part.start/part.length&&(a.fraction??0)<part.end/part.length;}
  function currentAnchor(){
@@ -59,15 +66,15 @@
    measure.dataset.layout=page.layout;measure.replaceChildren(composition(page));const slots=[...measure.querySelectorAll('.prose-region')];
    for(let i=0;i<slots.length;i++){
     const slot=slots[i],filled=[];page.groups[i]=filled;
-    const fits=group=>{const p=paragraph(group,page.dropcap&&i===0&&filled.length===0);slot.append(p);const ok=slot.scrollHeight<=slot.clientHeight+1;if(!ok)p.remove();return ok;};
-    while(queue.length){const group=queue[0];if(fits(group)){filled.push(queue.shift());continue;}
+    const fits=group=>{const p=proseElement(page,group,page.dropcap&&i===0&&filled.length===0);slot.append(p);const ok=slot.scrollHeight<=slot.clientHeight+1;if(!ok)p.remove();return ok;};
+    while(queue.length){const group=queue[0];if(page.slotBeats&&!page.slotBeats[i].includes(group[0].beat))break;if(fits(group)){filled.push(queue.shift());continue;}
      // Keep a new paragraph whole when moving to the next curated prose slot.
      if(filled.length)break;
      const text=group.map(p=>source(p.key).slice(p.start,p.end)).join(' '),ends=[...text.matchAll(/\s+/g)].map(m=>m.index+m[0].length);ends.push(text.length);
      let low=0,high=ends.length-1,best=-1;
-     while(low<=high){const mid=(low+high)>>1,[prefix]=splitGroup(group,ends[mid]);const trial=paragraph(prefix,page.dropcap&&i===0&&filled.length===0);slot.append(trial);const ok=slot.scrollHeight<=slot.clientHeight+1;trial.remove();if(ok){best=mid;low=mid+1;}else high=mid-1;}
+     while(low<=high){const mid=(low+high)>>1,[prefix]=splitGroup(group,ends[mid]);const trial=proseElement(page,prefix,page.dropcap&&i===0&&filled.length===0);slot.append(trial);const ok=slot.scrollHeight<=slot.clientHeight+1;trial.remove();if(ok){best=mid;low=mid+1;}else high=mid-1;}
      if(best<0)break;
-     const [head,tail]=splitGroup(group,ends[best]);filled.push(head);slot.append(paragraph(head,page.dropcap&&i===0&&filled.length===1));queue.shift();if(tail.length)queue.unshift(tail);break;
+     const [head,tail]=splitGroup(group,ends[best]);filled.push(head);slot.append(proseElement(page,head,page.dropcap&&i===0&&filled.length===1));queue.shift();if(tail.length)queue.unshift(tail);break;
     }
    }
    page.push(...page.groups.flat(2));
@@ -86,7 +93,7 @@
     const page=makePage(spec,spread.id,anchorKey);if(step===2&&spread.cross)page.cross=spread.cross;
     const queue=groupsFor(spec.beats);fill(page,queue);result.push(page);
     let continuations=0;
-    while(queue.length){const continuation=makePage({layout:'prose',beats:[]},spread.id,anchorKey);fill(continuation,queue);if(!continuation.length)throw new Error('Reading area too short for fixed prose');result.push(continuation);if(++continuations>40)throw new Error('Unexpected chronicle overflow');}
+    while(queue.length){const continuation=makePage({layout:'prose',originLayout:spec.layout,art:spec.art,beats:[]},spread.id,anchorKey);fill(continuation,queue);if(!continuation.length)throw new Error('Reading area too short for fixed prose');result.push(continuation);if(++continuations>40)throw new Error('Unexpected chronicle overflow');}
    }
    // Each narrative spread begins on a verso; overflow never displaces the next beat.
    if(step===2&&result.length%2)result.push(makePage({layout:'prose',beats:[]},spread.id,anchorKey));

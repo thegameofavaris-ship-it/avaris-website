@@ -120,6 +120,7 @@ Object.assign(window.AvarisLocale.messages, {
   }
 });
 Object.assign(window.AvarisLocale.messages, {"chronicle.art.memory-road":{"en":"An old road and weathered ruins beside a river.","tr":"Nehir kıyısında eski bir yol ve aşınmış kalıntılar."}});
+Object.assign(window.AvarisLocale.messages, {"chronicle.art.seven-ways-wide": {"en": "Seven ways of knowing in one connected riverside scene.", "tr": "Nehir kıyısındaki tek bir sahnede yedi farklı anlayış biçimi."}, "chronicle.art.tree-study": {"en": "An ink study of branches, roots and leaves.", "tr": "Dalların, köklerin ve yaprakların mürekkep çizimi."}});
 window.AvarisChronicles = {
   "book": {
     "titleKey": "chronicle.book"
@@ -385,54 +386,44 @@ window.AvarisChronicles = {
           "altKey": "chronicle.art.opening-panorama"
         },
         {
-          "id": "terrain-portrait",
-          "src": "../assets/chronicle-art/interior-v4/terrain-portrait.webp",
-          "altKey": "chronicle.art.terrain-portrait"
-        },
-        {
-          "id": "seven-ways-scene",
-          "src": "../assets/chronicle-art/interior-v4/seven-ways-scene.webp",
-          "altKey": "chronicle.art.seven-ways-scene"
-        },
-        {
           "id": "sisters-portrait",
           "src": "../assets/chronicle-art/interior-v4/sisters-portrait.webp",
           "altKey": "chronicle.art.sisters-portrait"
         },
         {
-          "id": "seven-currents",
-          "src": "../assets/chronicle-art/interior-v4/seven-currents.webp",
-          "altKey": "chronicle.art.seven-currents"
-        },
-        {
-          "id": "inheritance-scene",
-          "src": "../assets/chronicle-art/interior-v4/inheritance-scene.webp",
-          "altKey": "chronicle.art.inheritance-scene"
-        },
-        {
-          "id": "memory-scene",
-          "src": "../assets/chronicle-art/interior-v4/memory-scene.webp",
-          "altKey": "chronicle.art.memory-scene"
-        },
-        {
-          "id": "roads-scene",
-          "src": "../assets/chronicle-art/interior-v4/roads-scene.webp",
-          "altKey": "chronicle.art.roads-scene"
-        },
-        {
-          "id": "world-emerging",
-          "src": "../assets/chronicle-art/world-emerging.webp",
-          "altKey": "chronicle.art.world-emerging"
-        },
-        {
-          "id": "memory-road",
-          "src": "../assets/chronicle-art/interior-v4/memory-road.webp",
-          "altKey": "chronicle.art.memory-road"
-        },
-        {
           "id": "final-harmony",
           "src": "../assets/chronicle-art/final-harmony.webp",
           "altKey": "chronicle.art.final-harmony"
+        },
+        {
+          "id": "seven-paths",
+          "src": "../assets/chronicle-art/seven-paths.webp",
+          "altKey": "chronicle.art.seven-paths"
+        },
+        {
+          "id": "inheritance",
+          "src": "../assets/chronicle-art/inheritance.webp",
+          "altKey": "chronicle.art.inheritance"
+        },
+        {
+          "id": "history-memory",
+          "src": "../assets/chronicle-art/history-memory.webp",
+          "altKey": "chronicle.art.history-memory"
+        },
+        {
+          "id": "converging-roads",
+          "src": "../assets/chronicle-art/converging-roads.webp",
+          "altKey": "chronicle.art.converging-roads"
+        },
+        {
+          "id": "seven-ways-wide",
+          "src": "../assets/chronicle-art/compact-v5/seven-ways-wide.webp",
+          "altKey": "chronicle.art.seven-ways-wide"
+        },
+        {
+          "id": "tree-study",
+          "src": "../assets/chronicle-art/compact-v5/tree-study.webp",
+          "altKey": "chronicle.art.tree-study"
         }
       ],
       "treatments": {
@@ -461,41 +452,26 @@ window.AvarisChronicles = {
           "cross": "opening-panorama"
         },
         {
-          "id": "land",
+          "id": "world-peoples",
           "pages": [
             {
-              "layout": "horizontal",
+              "layout": "world-peoples",
               "beats": [
-                1
-              ],
-              "art": "world-emerging",
-              "dropcap": true
-            },
-            {
-              "layout": "portrait-pair",
-              "beats": [
+                1,
                 2,
                 3
               ],
-              "art": "terrain-portrait"
-            }
-          ]
-        },
-        {
-          "id": "seven-ways",
-          "pages": [
+              "art": "seven-ways-wide",
+              "dropcap": true
+            },
             {
-              "layout": "seven-lines",
+              "layout": "seven-lines-tree",
               "beats": [
                 4,
                 5,
                 6
-              ]
-            },
-            {
-              "layout": "plate",
-              "beats": [],
-              "art": "seven-ways-scene"
+              ],
+              "art": "tree-study"
             }
           ]
         },
@@ -503,64 +479,45 @@ window.AvarisChronicles = {
           "id": "sisters",
           "pages": [
             {
-              "layout": "prose",
+              "layout": "sisters-prose",
               "beats": [
                 7,
                 8,
                 9,
-                10
+                10,
+                11
               ],
+              "art": "seven-paths",
               "dropcap": true
             },
             {
               "layout": "plate",
               "beats": [],
-              "art": "sisters-portrait"
+              "art": "sisters-portrait",
+              "edge": "manuscript"
             }
           ]
         },
         {
-          "id": "powers-inheritance",
+          "id": "inheritance-memory",
           "pages": [
             {
-              "layout": "portrait-pair",
+              "layout": "inheritance-prose",
               "beats": [
-                11,
-                12
-              ],
-              "art": "seven-currents",
-              "dropcap": true
-            },
-            {
-              "layout": "horizontal",
-              "beats": [
+                12,
                 13,
-                14
+                14,
+                15
               ],
-              "art": "inheritance-scene"
-            }
-          ]
-        },
-        {
-          "id": "memory",
-          "pages": [
-            {
-              "layout": "multi-editorial",
-              "beats": [
-                15,
-                16
-              ],
-              "art": "memory-scene",
-              "secondaryArt": "memory-road",
-              "dropcap": true
+              "art": "inheritance"
             },
             {
-              "layout": "horizontal",
+              "layout": "memory-study",
               "beats": [
-                17,
-                18
+                16,
+                17
               ],
-              "art": "roads-scene"
+              "art": "history-memory"
             }
           ]
         },
@@ -568,19 +525,22 @@ window.AvarisChronicles = {
           "id": "final",
           "pages": [
             {
-              "layout": "prose",
+              "layout": "present-world",
               "beats": [
+                18,
                 19,
-                20,
-                21,
-                22
-              ]
+                20
+              ],
+              "art": "converging-roads"
             },
             {
-              "layout": "closure",
+              "layout": "finale",
               "beats": [
+                21,
+                22,
                 23
               ],
+              
               "art": "final-harmony"
             }
           ]

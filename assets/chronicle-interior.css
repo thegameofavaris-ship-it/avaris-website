@@ -77,3 +77,83 @@
  .reader-shell[data-mode=single] .leaf-body[data-layout=opening] .HERO_SPREAD_ART{top:62%;height:38%}
 }
 @media(max-height:540px){.reader-stage{padding:12px 20px}.book-leaf{padding-block:20px;gap:8px;grid-template-rows:16px minmax(0,1fr) 16px}.leaf-running{line-height:16px}.leaf-folio{line-height:16px}.chapter-heading .chapter-title{font-size:25px}}
+/* v5: five editorial spreads; text remains the book, drawing supports its flow. */
+.leaf-body[data-layout=world-peoples] .prose-region{height:58%;width:100%}
+.leaf-body[data-layout=world-peoples] .LARGE_HORIZONTAL_ART{left:0;top:60%;height:40%;width:100%}
+.leaf-body[data-layout=seven-lines-tree] .prose-region{height:78%;width:100%}
+.leaf-body[data-layout=seven-lines-tree] .LARGE_HORIZONTAL_ART{left:0;top:79%;height:21%;width:100%}
+.leaf-body[data-layout=seven-lines-tree] .seven-line{margin-bottom:8px}
+.leaf-body[data-layout=sisters-prose] .prose-region{height:100%;width:100%}
+.powers-paragraph{display:flow-root;margin-top:8px}
+.powers-paragraph .MANUSCRIPT_SYMBOL_ART{position:relative;float:right;width:42%;height:125px;margin:3px 0 8px 12px;max-width:none}
+.powers-paragraph p{margin:0;text-indent:0}
+/* Feather only the outer scenery of the approved plate; pixels/identities unchanged. */
+.manuscript-illustration[data-edge=manuscript] img{mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent),linear-gradient(transparent,#000 2%,#000 98%,transparent);mask-composite:intersect;-webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent),linear-gradient(transparent,#000 2%,#000 98%,transparent);-webkit-mask-composite:source-in}
+.leaf-body[data-layout=inheritance-prose] .prose-region{height:64%;width:100%}
+.leaf-body[data-layout=inheritance-prose] .LARGE_HORIZONTAL_ART{top:66%;left:0;height:34%;width:100%}
+.leaf-body[data-layout=memory-study] .prose-region{height:35%;width:100%}
+.leaf-body[data-layout=memory-study] .LARGE_HORIZONTAL_ART{top:39%;left:0;height:61%;width:100%}
+.leaf-body[data-layout=memory-study] .prose-region::after{content:'';display:block;height:20px;width:95px;margin:22px 0 0;background:linear-gradient(173deg,transparent 42%,#68503940 44%,transparent 46%),linear-gradient(175deg,transparent 65%,#68503922 67%,transparent 69%);pointer-events:none}
+.leaf-body[data-layout=present-world] .prose-region{height:55%;width:100%}
+.leaf-body[data-layout=present-world] .LARGE_HORIZONTAL_ART{top:58%;left:0;height:42%;width:100%}
+.leaf-body[data-layout=finale] .prose-region[data-slot="0"]{top:0;left:0;height:40%;width:100%}
+.leaf-body[data-layout=finale] .prose-region[data-slot="1"]{top:85%;left:0;height:15%;width:100%}
+.leaf-body[data-layout=finale] .SMALL_ORNAMENT{top:43%;left:0;height:38%;width:100%}
+.leaf-body[data-layout=finale] p.creed{margin:0 0 8px;color:#754231;text-indent:0}
+.leaf-body[data-layout=finale] p.law{margin:0;text-indent:0;text-align:center;color:#754231;letter-spacing:.025em}
+.leaf-body[data-layout=finale] p.law::before{content:'';display:block;width:55px;height:1px;margin:0 auto 18px;background:var(--interior-frame)}
+@media(max-width:520px){.powers-paragraph .MANUSCRIPT_SYMBOL_ART{height:115px;width:42%;margin-left:10px}}
+.leaf-body[data-layout=seven-lines-tree] .prose-region{height:100%}
+.tree-paragraph{display:flow-root;margin-top:16px}
+.tree-paragraph .BOTANICAL_STUDY_ART{position:relative;float:right;width:52%;height:200px;margin:0 0 3px 14px}
+.tree-paragraph p{margin:0;text-indent:0}
+@media(max-height:780px){.tree-paragraph .BOTANICAL_STUDY_ART{height:105px}}
+@media(max-width:520px){.tree-paragraph .BOTANICAL_STUDY_ART{height:125px;width:51%;margin-left:10px}}
+/* Compact desktop chrome releases paper space without changing print scale. */
+@media(min-width:1000px) and (min-height:640px) and (min-aspect-ratio:13/10){
+ .reader-shell{grid-template-rows:auto minmax(0,1fr) 52px}
+ .reader-navigation{grid-template-columns:1fr auto 1fr auto;grid-template-rows:44px;width:min(100%,940px);gap:0 26px;padding-block:4px}
+ .reader-navigation .reader-close{grid-column:auto;border:0;min-height:44px;justify-self:start;padding-inline:16px}
+ .book-stage{width:min(92vw,1360px)}
+}
+.leaf-body[data-layout=world-peoples] .prose-region,.leaf-body[data-layout=inheritance-prose] .prose-region,.leaf-body[data-layout=memory-study] .prose-region,.leaf-body[data-layout=present-world] .prose-region,.leaf-body[data-layout=finale] .prose-region{height:100%;width:100%;top:0;left:0}
+.flow-illustrated{display:flow-root}
+.flow-illustrated .INLINE_MANUSCRIPT_ART,.flow-illustrated .CLOSING_SYMBOL_ART{position:relative;float:none;width:100%;height:210px;margin:14px 0 16px}
+.world-peoples-flow .INLINE_MANUSCRIPT_ART{height:215px;margin-top:18px}
+.memory-study-flow .INLINE_MANUSCRIPT_ART{height:260px}
+.finale-flow .CLOSING_SYMBOL_ART{height:240px;margin-block:20px 24px}
+.leaf-body[data-layout=finale] p.law::before{margin-bottom:18px}
+@media(max-height:780px){
+ .flow-illustrated .INLINE_MANUSCRIPT_ART{height:170px;margin-block:10px 12px}
+ .world-peoples-flow .INLINE_MANUSCRIPT_ART{height:165px}
+ .memory-study-flow .INLINE_MANUSCRIPT_ART{height:215px}
+ .finale-flow .CLOSING_SYMBOL_ART{height:190px;margin-block:16px 22px}
+}
+@media(max-width:520px){
+ .flow-illustrated .INLINE_MANUSCRIPT_ART{height:155px;margin-block:12px 14px}
+ .world-peoples-flow .INLINE_MANUSCRIPT_ART{height:145px}
+ .memory-study-flow .INLINE_MANUSCRIPT_ART{height:200px}
+ .finale-flow .CLOSING_SYMBOL_ART{height:190px}
+}
+.leaf-body[data-layout=finale] .prose-region[data-slot="0"]{top:0;height:100%;width:100%}
+/* A readable print surface uses the available laptop window, never smaller ink. */
+@media(min-width:1000px) and (min-height:640px) and (min-aspect-ratio:13/10){
+ .reader-chrome{min-height:52px}
+ .reader-stage{padding:12px 4vw 10px}
+ .book-stage{max-height:680px;align-self:center}
+ .book-leaf{padding-top:20px;padding-bottom:12px;gap:10px}
+}
+.powers-paragraph .MANUSCRIPT_SYMBOL_ART{float:none;width:100%;height:190px;margin:12px 0 16px}
+@media(max-height:780px){.powers-paragraph .MANUSCRIPT_SYMBOL_ART{height:145px;margin-block:10px 12px}}
+@media(max-width:520px){.powers-paragraph .MANUSCRIPT_SYMBOL_ART{float:right;width:42%;height:115px;margin:3px 0 8px 10px}}
+.memory-study-flow .INLINE_MANUSCRIPT_ART{height:300px}
+@media(max-height:780px){.memory-study-flow .INLINE_MANUSCRIPT_ART{height:215px}}
+@media(max-width:520px){.memory-study-flow .INLINE_MANUSCRIPT_ART{height:200px}}
+/* At a short laptop width, the same 290x145 drawing sits beside its prose. */
+@media(min-width:1200px) and (max-width:1330px) and (max-height:780px){
+ .powers-paragraph .MANUSCRIPT_SYMBOL_ART{float:right;width:290px;height:145px;margin:3px 0 8px 12px}
+}
+/* Tablet-sized windows show one readable leaf instead of a cramped spread. */
+@media(min-width:1000px) and (max-width:1199px){
+ .chronicle-book{grid-template-columns:minmax(0,1fr)}.right-leaf{display:none}.book-stage{width:min(100%,680px)}.chronicle-book::after{display:none}
+}
