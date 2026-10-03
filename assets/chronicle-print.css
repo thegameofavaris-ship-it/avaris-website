@@ -1,0 +1,56 @@
+/* Fixed print scales. Pagination flows HTML; it never changes type size. */
+.leaf-body{font-size:16.5px;line-height:1.5;max-width:58ch;display:flow-root;--print-leading:1.5}
+.leaf-body p,.leaf-body p.opening,.leaf-body p.creed,.leaf-body p.law{font-size:inherit;line-height:inherit;color:#28221b;opacity:1;margin:0 0 4px;text-indent:0}
+.leaf-body p.paragraph:not(.opening):not(.beat-start):not(:first-child){text-indent:1.15em}
+.leaf-body p[data-start]:not([data-start="0"]){text-indent:0!important}
+.leaf-body p.beat-start:not(:first-child){margin-top:9px}
+.leaf-body p.sequence{margin-bottom:3px}
+.leaf-body p.sequence-start{margin-top:10px}
+.leaf-body p.creed{margin-top:9px;text-indent:0}
+.leaf-body p.law{margin-top:24px;margin-bottom:0;text-indent:0}
+.leaf-body p.opening{margin-top:12px;text-indent:0}
+.leaf-body p:first-child{margin-top:0}
+.leaf-body .chapter-heading{margin-bottom:20px}
+.chapter-heading .chapter-number{margin-bottom:17px}
+.leaf-running{font-size:9px;line-height:20px;color:#756851;opacity:.78}
+.leaf-folio{font-size:12px;line-height:22px;color:#756851}
+.book-leaf{gap:12px;padding-inline:38px;--art-rail:49px}
+.manuscript-illustration[data-placement=half-page]{height:var(--print-art-height,110px);margin:6px 0 9px;clear:both}
+.manuscript-illustration[data-art=world-emerging]{--print-art-height:145px;margin:8px 0 12px}
+.manuscript-illustration[data-art=seven-sisters]{--print-art-height:150px;margin-block:10px 12px}
+.manuscript-illustration[data-art=final-harmony]{--print-art-height:70px;margin:12px 0 10px}
+/* Selected vignettes share the text block; surrounding prose wraps around them. */
+.leaf-body .manuscript-illustration[data-composition=wrap]{float:right;width:45%;height:var(--print-art-height,115px);margin:4px 0 8px 15px;clear:both}
+.leaf-body .manuscript-illustration[data-art=settlement]{--print-art-height:135px}
+.leaf-body .manuscript-illustration[data-art=seven-paths]{--print-art-height:120px}
+.leaf-body .manuscript-illustration[data-art=inheritance]{--print-art-height:95px}
+.leaf-body .manuscript-illustration[data-art=history-memory]{--print-art-height:90px;opacity:.6}
+.leaf-body .manuscript-illustration[data-art=converging-roads]{--print-art-height:120px}
+.leaf-body .manuscript-illustration[data-placement=mobile-vignette]{float:right;width:78px;height:54px;margin:2px 0 6px 12px;clear:both}
+.manuscript-illustration[data-placement=outer-margin]{right:var(--art-inset,8px)}
+.left-leaf>.manuscript-illustration[data-placement=outer-margin]{left:var(--art-inset,8px);right:auto}
+@media(min-width:1000px) and (min-height:740px) and (min-aspect-ratio:13/10){
+ .book-leaf{--outer-margin:66px;--art-rail:49px;padding-top:30px;padding-bottom:18px}
+ .left-leaf{padding-left:var(--outer-margin);padding-right:34px}
+ .right-leaf{padding-left:34px;padding-right:var(--outer-margin)}
+ .left-leaf .leaf-body .manuscript-illustration[data-composition=wrap]{float:left;margin:4px 15px 8px 0}
+}
+@media(max-width:999px){.leaf-body{font-size:17px;line-height:1.5;max-width:58ch}.book-leaf{padding-inline:35px}}
+@media(max-width:520px){
+ .leaf-body{font-size:17px;line-height:1.5;max-width:none}
+ .book-leaf{padding:22px 25px 12px;gap:11px}
+ .leaf-running{font-size:8px}
+ .leaf-body .manuscript-illustration[data-composition=wrap]{width:42%;margin-left:10px}
+ .manuscript-illustration[data-art=world-emerging]{--print-art-height:115px}
+ .manuscript-illustration[data-art=seven-sisters]{--print-art-height:120px}
+ .leaf-body .manuscript-illustration[data-art=settlement]{--print-art-height:100px}
+ .leaf-body .manuscript-illustration[data-art=seven-paths]{--print-art-height:90px}
+ .leaf-body .manuscript-illustration[data-art=inheritance]{--print-art-height:80px}
+ .leaf-body .manuscript-illustration[data-art=history-memory]{--print-art-height:80px}
+ .leaf-body .manuscript-illustration[data-art=converging-roads]{--print-art-height:95px}
+ .manuscript-illustration[data-art=final-harmony]{--print-art-height:60px}
+}
+@media(max-height:540px){.manuscript-illustration[data-placement=half-page]{height:70px}.book-leaf{padding-block:12px}}
+.leaf-body .manuscript-illustration+p.paragraph,.leaf-body p.sequence+p.paragraph{ text-indent:0 }
+.leaf-body p.sequence+p.paragraph{margin-top:9px}
+.leaf-body p.manuscript-treatment{color:#28221b}
