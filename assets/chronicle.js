@@ -5,6 +5,7 @@
  const legend=registry.legends.find(x=>x.id===params.get('legend'))||registry.legends[0];
  const book=shell.querySelector('.chronicle-book'),stage=shell.querySelector('.book-stage'),coverStage=shell.querySelector('.cover-stage');
  const leaves=[...book.querySelectorAll('.book-leaf')],previous=shell.querySelector('.reader-prev'),next=shell.querySelector('.reader-next'),progress=shell.querySelector('.reader-progress');
+ const closeButton=shell.querySelector('.reader-close');
  const expand=shell.querySelector('.reader-expand'),motion=matchMedia('(prefers-reduced-motion: reduce)');
  const t=(key,args)=>window.AvarisI18n.t(key,args),source=key=>t(key);
  let pages=[],index=0,step=1,turning=false,anchor=null,resizeTimer,openingTimer,queued=false;
@@ -14,7 +15,9 @@
  function element(part){
   if(part.kind==='heading')return heading();
   if(part.kind==='illustration'){
-   const f=document.createElement('figure');f.className='manuscript-illustration';f.dataset.placement=part.asset.placement;const img=document.createElement('img');img.src=part.asset.src;img.alt=part.asset.altKey?t(part.asset.altKey):'';f.append(img);return f;
+   const a=part.asset,f=document.createElement('figure');f.className='manuscript-illustration';f.dataset.art=a.id;f.dataset.placement=a.placement==='outer-margin'&&step===1?'mobile-vignette':a.placement;f.style.setProperty('--art-height',a.height+'px');
+   const img=document.createElement('img');img.src=a.src;img.alt=a.altKey?t(a.altKey):'';img.loading='lazy';img.decoding='async';img.width=a.crop?1600:1200;img.height=a.crop?640:(a.id==='settlement'?800:600);
+   if(a.crop){const [x,y,w,h]=a.crop;f.dataset.cropped='true';const window=document.createElement('span');window.className='art-window';f.style.setProperty('--art-ratio',String(w/h*a.sourceAspect));img.style.width=(100/w)+'%';img.style.left=(-x/w*100)+'%';img.style.top=(-y/h*100)+'%';window.append(img);f.append(window);}else f.append(img);return f;
   }
   const p=document.createElement('p');p.className=[part.kind,part.emphasis||'',part.beatStart?'beat-start':'',part.sequenceStart?'sequence-start':''].filter(Boolean).join(' ');
   p.dataset.sourceKey=part.key;p.dataset.start=part.start;p.dataset.end=part.end;
@@ -25,11 +28,11 @@
  function units(){
   const all=[{kind:'heading'}];let prior=null;
   for(const u of legend.units){
-   for(const asset of legend.illustrations||[]){if(asset.anchor===u.key&&['half-page','full-page'].includes(asset.placement)&&asset.src)all.push({kind:'illustration',asset});}
+   for(const asset of legend.illustrations||[]){if(asset.anchor===u.key&&(['half-page','full-page'].includes(asset.placement)||(asset.placement==='outer-margin'&&step===1))&&asset.src)all.push({kind:'illustration',asset});}
    all.push({...u,start:0,end:source(u.key).length,length:source(u.key).length,beatStart:prior!==null&&prior!==u.beat,sequenceStart:u.kind==='sequence'&&prior!==u.beat});prior=u.beat;
   }return all;
  }
- function sameAnchor(part,a){return part.key===a?.key&&(a.fraction??0)>=part.start/part.length&&(a.fraction??0)<=(part.end/part.length);}
+ function sameAnchor(part,a){return part.key===a?.key&&(a.fraction??0)>=part.start/part.length&&(a.fraction??0)<(part.end/part.length);}
  function currentAnchor(){const part=pages[index]?.find(x=>x.key)||pages[index+1]?.find(x=>x.key);return part?{key:part.key,fraction:part.start/part.length}:null;}
  function fit(measure,part){const node=element(part);measure.append(node);const fits=measure.scrollHeight<=measure.clientHeight+1;if(!fits)node.remove();return fits;}
  function pagination(){
@@ -38,9 +41,11 @@
   const queue=units(),result=[];let page=[];
   const finish=()=>{if(page.length)result.push(page);page=[];measure.replaceChildren();};
   while(queue.length){const part=queue.shift();
+   // Keep an illustration with the beginning of its passage whenever both fit.
+   if(part.kind==='illustration'&&page.length&&queue[0]?.key){const trial=measure.cloneNode(false);shell.append(trial);trial.replaceChildren(element(part),element(queue[0]));const fitsEmpty=trial.scrollHeight<=trial.clientHeight+1;trial.replaceChildren(...page.map(element),element(part),element(queue[0]));const fitsHere=trial.scrollHeight<=trial.clientHeight+1;trial.remove();if(fitsEmpty&&!fitsHere){finish();queue.unshift(part);continue;}}
    // Keep rhythmic sequences and the closing creed together when a page can hold them.
    if(page.length&&part.key&&part.start===0&&([4,8,13,16,19].includes(part.beat)&&part.key.endsWith('.00')||part.beat===20)) {
-    const bundle=[part,...queue.filter((x,i)=>{if(!x.key)return false;return part.beat===20?x.beat>=20:x.beat===part.beat;})];
+    const bundle=[part,...queue.filter((x,i)=>{const unit=x.key?x:legend.units.find(u=>u.key===x.asset?.anchor);if(!unit)return false;return part.beat===20?unit.beat>=20:unit.beat===part.beat;})];
     const trial=measure.cloneNode(false);trial.style.width=rect.width+'px';trial.style.height=rect.height+'px';shell.append(trial);trial.replaceChildren(...bundle.map(element));const fitsEmpty=trial.scrollHeight<=trial.clientHeight+1;trial.replaceChildren(...page.map(element),...bundle.map(element));const fitsHere=trial.scrollHeight<=trial.clientHeight+1;trial.remove();
     if(fitsEmpty&&!fitsHere&&page.some(x=>x.key)){finish();queue.unshift(part);continue;}
    }
@@ -65,8 +70,9 @@
   pages=result;
  }
  function decorate(leaf,page){
-  leaf.querySelectorAll('.manuscript-illustration,.page-corner').forEach(x=>x.remove());
-  for(const asset of legend.illustrations||[]){if(!asset.src||['half-page','full-page'].includes(asset.placement)||!page.some(p=>p.key===asset.anchor))continue;const fig=element({kind:'illustration',asset});leaf.append(fig);}
+  leaf.querySelectorAll(':scope > .manuscript-illustration,:scope > .page-corner').forEach(x=>x.remove());
+  leaf.dataset.worn=String(page.some(p=>p.beat===16));leaf.dataset.ending=String(page.some(p=>p.emphasis==='law'));
+  for(const asset of legend.illustrations||[]){if(!asset.src||['half-page','full-page'].includes(asset.placement)||step===1||!page.some(p=>p.key===asset.anchor&&p.start===0))continue;const fig=element({kind:'illustration',asset});const paragraph=[...leaf.querySelectorAll('[data-source-key]')].find(p=>p.dataset.sourceKey===asset.anchor);if(paragraph){const r=paragraph.getBoundingClientRect();fig.style.setProperty('--art-top',Math.max(65,r.top-leaf.getBoundingClientRect().top)+'px');fig.style.setProperty('--art-available',Math.max(26,r.height-2)+'px');}leaf.append(fig);}
   // Slot positions are independent of canon. No unapproved images are displayed.
   leaf.dataset.illustrationSlots='top-corner bottom-corner outer-margin vignette half-page full-page edge';
   const corner=document.createElement('span');corner.className='page-corner';corner.setAttribute('aria-hidden','true');leaf.append(corner);
@@ -103,7 +109,9 @@
   shell.dispatchEvent(new CustomEvent('avaris:chronicle-turn',{bubbles:true,detail:{legend:legend.id,page:destination+1,soundPreference:readSoundPreference()}}));
   if(motion.matches){index=destination;render();return;}
   turning=true;const paper=document.createElement('div');paper.className='paper-turn '+(direction>0?'forward':'backward');paper.setAttribute('aria-hidden','true');book.append(paper);
-  // The ink is static; only the separate blank paper/shadow plane moves.
+  // Illustrations are attached to the outgoing paper plane; HTML ink stays static.
+  const outgoing=leaves[direction>0?step-1:0],paperBox=outgoing.getBoundingClientRect();
+  outgoing.querySelectorAll('.manuscript-illustration').forEach(fig=>{const copy=fig.cloneNode(true),r=fig.getBoundingClientRect();copy.classList.add('turn-illustration');Object.assign(copy.style,{left:(r.left-paperBox.left)+'px',top:(r.top-paperBox.top)+'px',right:'auto',width:r.width+'px',height:r.height+'px'});copy.querySelectorAll('img').forEach(img=>img.alt='');paper.append(copy);});
   setTimeout(()=>{index=destination;render();},245);
   setTimeout(()=>{paper.remove();turning=false;if(queued){queued=false;layout();}},560);
  }
@@ -115,6 +123,13 @@
   const done=()=>{shell.dataset.state='reading';coverStage.hidden=true;coverStage.setAttribute('inert','');render();document.querySelector('#reading').focus({preventScroll:true});};
   if(motion.matches)done();else openingTimer=setTimeout(done,850);
  }
+ function close(){
+  if(turning||shell.dataset.state!=='reading')return;
+  updateURL();const url=new URL(location.href);url.searchParams.set('entry','cover');history.replaceState(null,'',url);
+  shell.dataset.state=motion.matches?'cover':'closing';stage.setAttribute('inert','');stage.setAttribute('aria-hidden','true');coverStage.hidden=false;coverStage.removeAttribute('inert');
+  const done=()=>{shell.dataset.state='cover';coverStage.querySelector('button').focus({preventScroll:true});};if(motion.matches)done();else openingTimer=setTimeout(done,700);
+ }
+ closeButton.addEventListener('click',close);
  previous.addEventListener('click',()=>turn(-1));next.addEventListener('click',()=>turn(1));coverStage.querySelector('button').addEventListener('click',open);
  book.addEventListener('click',event=>{const leaf=event.target.closest('.book-leaf');if(!leaf||!getSelection()?.isCollapsed)return;const r=leaf.getBoundingClientRect();if(event.clientX>r.right-44&&event.clientY>r.bottom-44)turn(1);});
  document.addEventListener('keydown',event=>{
