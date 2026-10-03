@@ -7,8 +7,8 @@
 .world-map picture,.world-map img { display: block; width: 100%; height: auto; }
 .world-map-overlay { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; }
 .map-dimmer { fill: #131210; opacity: 0; transition: opacity .45s; pointer-events: none; }
-.world-map:not([data-active=""]) .map-dimmer { opacity: .11; }
-.map-highlight { opacity: 0; transition: opacity .45s; pointer-events: none; filter: brightness(1.055) contrast(1.025); }
+.world-map:not([data-active=""]) .map-dimmer { opacity: .14; }
+.map-highlight { opacity: 0; transition: opacity .45s; pointer-events: none; filter: brightness(1.085) contrast(1.04); }
 .map-highlight[data-state="active"] { opacity: 1; }
 .map-hotspot path { fill: transparent; stroke: transparent; stroke-width: 2; cursor: pointer; }
 .map-hotspot:focus { outline: none; }
@@ -33,13 +33,13 @@
 .haze-two { animation-delay: -16s; stroke-width: 7; }
 .idle-water { stroke: #deddd5; stroke-width: .65; opacity: .1; stroke-dasharray: 6 70; animation: map-water 24s linear infinite; }
 .idle-reflection { fill: #dfded7; opacity: 0; animation: map-rare-light 21s ease-in-out infinite; }
-.local-mist { stroke: #d0d6dc; stroke-width: 5; opacity: .09; }
+.local-mist { stroke: #d0d6dc; stroke-width: 5; opacity: .14; }
 .ash-mist { stroke: #b8a89b; stroke-width: 3; }
-.settlement-smoke { stroke: #d1d1cc; stroke-width: 2.5; opacity: .1; }
+.settlement-smoke { stroke: #d1d1cc; stroke-width: 3; opacity: .16; }
 .warm-smoke { stroke: #ada195; }
-.water-light { stroke: #e3ddd0; stroke-width: 1; opacity: .28; stroke-dasharray: 12 45; }
-.route-light { stroke: #e4d3a6; stroke-width: 1; opacity: .3; stroke-dasharray: 4 60; }
-.ocean-wave { stroke: #b4cada; stroke-width: 1; opacity: .24; stroke-dasharray: 16 35; }
+.water-light { stroke: #e3ddd0; stroke-width: 1.4; opacity: .46; stroke-dasharray: 12 45; }
+.route-light { stroke: #e4d3a6; stroke-width: 1.25; opacity: .44; stroke-dasharray: 4 60; }
+.ocean-wave { stroke: #b4cada; stroke-width: 1.3; opacity: .4; stroke-dasharray: 16 35; }
 .abstract-wisp { stroke: #b9b4ac; stroke-width: 2.5; opacity: .06; }
 .pollen { fill: #ddd3a6; opacity: 0; }
 .ember { fill: #bf7142; opacity: 0; }
@@ -48,15 +48,15 @@
 .warm-light { fill: #d7aa73; opacity: .15; }
 .heat-trace { stroke: #be7140; stroke-width: 2; opacity: .08; }
 .map-effect .leaf-shadow { fill: #a7aa7c; stroke: none; opacity: .18; }
-.sacred-lines,.sacred-ring { fill: none; stroke: #c0a878; stroke-width: .6; opacity: 0; }
+.sacred-lines,.sacred-ring { fill: none; stroke: #c0a878; stroke-width: .8; opacity: 0; }
 .sacred-ring { transform-box: fill-box; transform-origin: center; }
 .direction-light { fill: #dbc291; opacity: .12; }
 /* Only the active kingdom owns animations. Deactivation cancels them; the layer fades. */
-.map-effect[data-state="active"] .local-mist { animation: map-mist 12s ease-in-out infinite alternate; }
+.map-effect[data-state="active"] .local-mist { animation: map-mist 10s ease-in-out infinite alternate; }
 .map-effect[data-state="active"] .settlement-smoke { animation: map-smoke 11s ease-in-out infinite alternate; }
-.map-effect[data-state="active"] .water-light { animation: map-water 11s .3s linear infinite; }
+.map-effect[data-state="active"] .water-light { animation: map-water 8s .3s linear infinite; }
 .map-effect[data-state="active"] .route-light { animation: map-water 10s linear infinite; }
-.map-effect[data-state="active"] .ocean-wave { animation: map-water 13s linear infinite; }
+.map-effect[data-state="active"] .ocean-wave { animation: map-water 10s linear infinite; }
 .map-effect[data-state="active"] .abstract-wisp { animation: map-mist 16s ease-in-out infinite alternate; }
 .map-effect[data-state="active"] .pollen { animation: map-pollen 10s .7s ease-out infinite; }
 .map-effect[data-state="active"] .ember { animation: map-ember 8s ease-out infinite; }
@@ -80,17 +80,17 @@
 @keyframes map-haze { from { transform: translateX(-4px); opacity: .02; } to { transform: translateX(7px); opacity: .045; } }
 @keyframes map-water { to { stroke-dashoffset: -114; } }
 @keyframes map-rare-light { 0%,70%,85%,100% { opacity: 0; } 76% { opacity: .2; } }
-@keyframes map-mist { from { transform: translateX(-3px); } to { transform: translateX(6px); } }
-@keyframes map-smoke { from { transform: translate(0,1px); opacity: .07; } to { transform: translate(3px,-5px); opacity: .13; } }
-@keyframes map-pollen { 0%,100% { opacity: 0; transform: translate(0,0); } 35% { opacity: .26; } 80% { opacity: .04; transform: translate(8px,-14px); } }
-@keyframes map-ember { 0%,100% { opacity: 0; transform: translate(0,0); } 30% { opacity: .4; } 90% { opacity: 0; transform: translate(4px,-18px); } }
-@keyframes map-glint { 0%,80%,100% { opacity: 0; } 40% { opacity: .3; } }
-@keyframes map-warm { 0%,100% { opacity: .13; } 45% { opacity: .38; } }
+@keyframes map-mist { from { transform: translateX(-3px); } to { transform: translateX(10px); } }
+@keyframes map-smoke { from { transform: translate(0,1px); opacity: .1; } to { transform: translate(4px,-7px); opacity: .2; } }
+@keyframes map-pollen { 0%,100% { opacity: 0; transform: translate(0,0); } 35% { opacity: .38; } 80% { opacity: .04; transform: translate(8px,-14px); } }
+@keyframes map-ember { 0%,100% { opacity: 0; transform: translate(0,0); } 30% { opacity: .55; } 90% { opacity: 0; transform: translate(4px,-18px); } }
+@keyframes map-glint { 0%,80%,100% { opacity: 0; } 40% { opacity: .45; } }
+@keyframes map-warm { 0%,100% { opacity: .13; } 45% { opacity: .5; } }
 @keyframes map-leaf { 0%,100% { transform: translate(0,0); opacity: .12; } 50% { transform: translate(2px,1px); opacity: .22; } }
-@keyframes map-sacred { 0%,100% { opacity: 0; } 35%,65% { opacity: .17; } }
+@keyframes map-sacred { 0%,100% { opacity: 0; } 35%,65% { opacity: .25; } }
 @keyframes map-direction { 0%,100% { opacity: .12; } 45% { opacity: .4; } }
 @keyframes map-ripple { 0% { opacity: 0; transform: scale(.85); } 35% { opacity: .15; } 100% { opacity: 0; transform: scale(1.12); } }
-@keyframes map-bird-flight { 0% { opacity: 0; transform: translate(551px,275px); } 15% { opacity: .75; transform: translate(568px,266px); } 75% { opacity: .65; transform: translate(628px,243px); } 100% { opacity: 0; transform: translate(651px,236px); } }
+@keyframes map-bird-flight { 0% { opacity: 0; transform: translate(551px,275px) scale(1.5); } 15% { opacity: .9; transform: translate(568px,266px) scale(1.5); } 75% { opacity: .85; transform: translate(628px,243px) scale(1.5); } 100% { opacity: 0; transform: translate(651px,236px) scale(1.5); } }
 @keyframes map-wing { 0%,100% { transform: scaleY(.65); } 50% { transform: scaleY(1); } }
 @media(hover:none),(pointer:coarse) { .map-instruction-hover { display: none; } .map-instruction-touch { display: block; } .map-explore { min-height: 44px; padding: 0 4px; } .map-birds,.map-idle { display: none !important; } }
 @media(max-width:850px) { .world-map-section { margin-left: -2%; margin-right: -2%; } .world-map-section .section-head { padding: 0 2%; } .map-effect .pollen,.map-effect .ash,.map-effect .abstract-wisp,.map-birds { display: none !important; } .map-caption { gap: 3px; } }
