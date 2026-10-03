@@ -4,10 +4,8 @@
   const section = map.closest('.world-map-section');
   const caption = section.querySelector('.map-selected-name');
   const annotation = map.querySelector('.map-caption');
-  const effects = [...map.querySelectorAll('.map-effect')];
+  const environment = new window.AvarisEnvironment(map);
   const highlights = [...map.querySelectorAll('.map-highlight')];
-  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  let lastBirdFlight = -Infinity;
   const explore = section.querySelector('.map-explore');
   const image = map.querySelector('img');
   const hotspots = [...map.querySelectorAll('.map-hotspot')];
@@ -23,18 +21,13 @@
   function activate(kingdom, source = 'pointer') {
     if (active === kingdom) { activeSource = source; return; }
     if (active) { emit('leave', active, source); emit('deactivate', active, source); }
-    // One retained SVG layer per kingdom; changing state cancels its previous animations.
-    delete map.dataset.birds;
+    // One environmental renderer; changing kingdom cancels the previous frame loop.
     active = kingdom;
     activeSource = source;
     map.dataset.active = kingdom || '';
-    effects.forEach(node => node.dataset.state = node.classList.contains('effect-' + (kingdom || '').toLowerCase()) ? 'active' : 'idle');
+    environment.activate(kingdom);
     highlights.forEach(node => node.dataset.state = node.dataset.region === kingdom ? 'active' : 'idle');
     annotation.dataset.shown = String(Boolean(kingdom));
-    if (kingdom === 'Armonia' && !reducedMotion.matches && !touch.matches && innerWidth > 850 && Date.now() - lastBirdFlight > 45000) {
-      map.dataset.birds = 'Armonia';
-      lastBirdFlight = Date.now();
-    }
     caption.textContent = kingdom ? kingdom.toUpperCase() : '';
     explore.hidden = !kingdom;
     if (kingdom) {
@@ -44,9 +37,6 @@
     }
   }
   hotspots.forEach(hotspot => {
-    hotspot.addEventListener('pointerenter', event => {
-      if (event.pointerType === 'mouse' && !touch.matches) activate(hotspot.dataset.kingdom, 'hover');
-    });
     hotspot.addEventListener('focus', () => activate(hotspot.dataset.kingdom, 'keyboard'));
     hotspot.addEventListener('click', event => {
       if (touch.matches || event.pointerType === 'touch') {
@@ -59,6 +49,10 @@
     pointerStart = {x: event.clientX, y: event.clientY}; pointerMoved = false;
   }, {passive: true});
   map.addEventListener('pointermove', event => {
+    if (event.pointerType === 'mouse' && !touch.matches && !pointerStart) {
+      const hotspot=event.target.closest('.map-hotspot');
+      if(hotspot)activate(hotspot.dataset.kingdom,'hover');
+    }
     if (pointerStart && Math.hypot(event.clientX-pointerStart.x,event.clientY-pointerStart.y)>10) pointerMoved = true;
   }, {passive: true});
   map.addEventListener('pointercancel', () => {pointerMoved = true; pointerStart = null;}, {passive: true});
@@ -70,11 +64,7 @@
   document.addEventListener('click', event => {if (!map.contains(event.target)) activate(null, 'outside');});
   map.addEventListener('focusout', event => {if (!map.contains(event.relatedTarget)) activate(null, 'keyboard');});
   document.addEventListener('keydown', event => {if(event.key === 'Escape') activate(null, 'keyboard');});
-  map.querySelector('.bird-flight').addEventListener('animationend', event => {
-    if (event.animationName === 'map-bird-flight') delete map.dataset.birds;
-  });
-  reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) delete map.dataset.birds; });
-  function syncVisibility() {map.dataset.visible = String(inViewport && !document.hidden);}
+  function syncVisibility() {const visible=inViewport && !document.hidden;map.dataset.visible=String(visible);environment.setVisible(visible);}
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {inViewport=entries[0].isIntersecting;syncVisibility();}, {threshold: .05});
     observer.observe(map);

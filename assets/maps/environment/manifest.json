@@ -1,0 +1,259 @@
+{
+  "width": 1536,
+  "height": 1024,
+  "patches": [
+    {
+      "id": "water-mask-armonia",
+      "kingdom": "armonia",
+      "kind": "river",
+      "x": 405,
+      "y": 63,
+      "width": 456,
+      "height": 343,
+      "phase": 0,
+      "mask": "assets/maps/environment/water-mask-armonia.png"
+    },
+    {
+      "id": "waterfall-mask-armonia-west",
+      "kingdom": "armonia",
+      "kind": "fall",
+      "x": 450,
+      "y": 165,
+      "width": 20,
+      "height": 45,
+      "phase": 0,
+      "mask": "assets/maps/environment/waterfall-mask-armonia-west.png"
+    },
+    {
+      "id": "waterfall-mask-armonia-east",
+      "kingdom": "armonia",
+      "kind": "fall",
+      "x": 778,
+      "y": 175,
+      "width": 32,
+      "height": 76,
+      "phase": 0,
+      "mask": "assets/maps/environment/waterfall-mask-armonia-east.png"
+    },
+    {
+      "id": "waterfall-mask-armonia-south",
+      "kingdom": "armonia",
+      "kind": "fall",
+      "x": 648,
+      "y": 337,
+      "width": 28,
+      "height": 38,
+      "phase": 0,
+      "mask": "assets/maps/environment/waterfall-mask-armonia-south.png"
+    },
+    {
+      "id": "foliage-mask-armonia",
+      "kingdom": "armonia",
+      "kind": "foliage",
+      "x": 526,
+      "y": 209,
+      "width": 80,
+      "height": 44,
+      "phase": 0,
+      "mask": "assets/maps/environment/foliage-mask-armonia.png"
+    },
+    {
+      "id": "water-mask-serapha",
+      "kingdom": "serapha",
+      "kind": "river",
+      "x": 983,
+      "y": 39,
+      "width": 506,
+      "height": 413,
+      "phase": 0,
+      "mask": "assets/maps/environment/water-mask-serapha.png"
+    },
+    {
+      "id": "water-mask-nymora",
+      "kingdom": "nymora",
+      "kind": "ocean",
+      "x": 15,
+      "y": 425,
+      "width": 548,
+      "height": 466,
+      "phase": 0,
+      "mask": "assets/maps/environment/water-mask-nymora.png"
+    },
+    {
+      "id": "water-mask-equira",
+      "kingdom": "equira",
+      "kind": "river",
+      "x": 522,
+      "y": 308,
+      "width": 596,
+      "height": 296,
+      "phase": 0,
+      "mask": "assets/maps/environment/water-mask-equira.png"
+    },
+    {
+      "id": "bridge-mask-equira",
+      "kingdom": "equira",
+      "kind": "bridge",
+      "x": 772,
+      "y": 492,
+      "width": 103,
+      "height": 26,
+      "phase": 0,
+      "mask": "assets/maps/environment/bridge-mask-equira.png"
+    },
+    {
+      "id": "water-mask-veritasa",
+      "kingdom": "veritasa",
+      "kind": "ocean",
+      "x": 1036,
+      "y": 461,
+      "width": 477,
+      "height": 466,
+      "phase": 0,
+      "mask": "assets/maps/environment/water-mask-veritasa.png"
+    },
+    {
+      "id": "temple-mask-veritasa-north",
+      "kingdom": "veritasa",
+      "kind": "temple",
+      "x": 1265,
+      "y": 462,
+      "width": 54,
+      "height": 79,
+      "phase": 0,
+      "mask": "assets/maps/environment/temple-mask-veritasa-north.png"
+    },
+    {
+      "id": "temple-mask-veritasa-east",
+      "kingdom": "veritasa",
+      "kind": "temple",
+      "x": 1420,
+      "y": 549,
+      "width": 65,
+      "height": 86,
+      "phase": 1,
+      "mask": "assets/maps/environment/temple-mask-veritasa-east.png"
+    },
+    {
+      "id": "temple-mask-veritasa-south",
+      "kingdom": "veritasa",
+      "kind": "temple",
+      "x": 1247,
+      "y": 715,
+      "width": 75,
+      "height": 93,
+      "phase": 2,
+      "mask": "assets/maps/environment/temple-mask-veritasa-south.png"
+    },
+    {
+      "id": "temple-mask-veritasa-west",
+      "kingdom": "veritasa",
+      "kind": "temple",
+      "x": 1078,
+      "y": 554,
+      "width": 62,
+      "height": 86,
+      "phase": 3,
+      "mask": "assets/maps/environment/temple-mask-veritasa-west.png"
+    },
+    {
+      "id": "mist-mask-drakvar-west",
+      "kingdom": "drakvar",
+      "kind": "mist",
+      "x": 10,
+      "y": 210,
+      "width": 86,
+      "height": 91,
+      "phase": 0,
+      "mask": "assets/maps/environment/mist-mask-drakvar-west.png"
+    },
+    {
+      "id": "mist-mask-drakvar-east",
+      "kingdom": "drakvar",
+      "kind": "mist",
+      "x": 294,
+      "y": 172,
+      "width": 127,
+      "height": 87,
+      "phase": 0,
+      "mask": "assets/maps/environment/mist-mask-drakvar-east.png"
+    },
+    {
+      "id": "smoke-mask-drakvar",
+      "kingdom": "drakvar",
+      "kind": "smoke",
+      "x": 108,
+      "y": 159,
+      "width": 68,
+      "height": 47,
+      "phase": 0,
+      "mask": "assets/maps/environment/smoke-mask-drakvar.png"
+    },
+    {
+      "id": "forge-mask-drakvar",
+      "kingdom": "drakvar",
+      "kind": "fire",
+      "x": 149,
+      "y": 113,
+      "width": 38,
+      "height": 34,
+      "phase": 0,
+      "mask": "assets/maps/environment/forge-mask-drakvar.png"
+    },
+    {
+      "id": "water-mask-drakvar",
+      "kingdom": "drakvar",
+      "kind": "river",
+      "x": 15,
+      "y": 300,
+      "width": 378,
+      "height": 106,
+      "phase": 0,
+      "mask": "assets/maps/environment/water-mask-drakvar.png"
+    },
+    {
+      "id": "smoke-mask-ignivar-north",
+      "kingdom": "ignivar",
+      "kind": "smoke",
+      "x": 591,
+      "y": 579,
+      "width": 187,
+      "height": 86,
+      "phase": 0,
+      "mask": "assets/maps/environment/smoke-mask-ignivar-north.png"
+    },
+    {
+      "id": "smoke-mask-ignivar-south",
+      "kingdom": "ignivar",
+      "kind": "smoke",
+      "x": 527,
+      "y": 820,
+      "width": 120,
+      "height": 93,
+      "phase": 0,
+      "mask": "assets/maps/environment/smoke-mask-ignivar-south.png"
+    },
+    {
+      "id": "fire-mask-ignivar",
+      "kingdom": "ignivar",
+      "kind": "fire",
+      "x": 549,
+      "y": 591,
+      "width": 559,
+      "height": 402,
+      "phase": 0,
+      "mask": "assets/maps/environment/fire-mask-ignivar.png"
+    },
+    {
+      "id": "settlement-mask-ignivar",
+      "kingdom": "ignivar",
+      "kind": "settlement",
+      "x": 745,
+      "y": 858,
+      "width": 96,
+      "height": 88,
+      "phase": 0,
+      "mask": "assets/maps/environment/settlement-mask-ignivar.png"
+    }
+  ]
+}
