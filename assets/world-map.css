@@ -1,23 +1,105 @@
-.world-map-section{margin:20px -25px 65px}.world-map-section .section-head{padding:0 25px;margin-bottom:24px}.world-map-section h2{font-size:clamp(28px,3.4vw,43px);letter-spacing:.07em}.map-instruction{font-size:13px;margin:18px 0 0}.map-instruction-touch{display:none}
-.world-map{position:relative;aspect-ratio:3/2;background:#151413;isolation:isolate;border:1px solid #504638;touch-action:pan-y pinch-zoom}
-.world-map picture,.world-map img{display:block;width:100%;height:auto}.world-map-overlay{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}
-.map-dimmer{fill:#131210;opacity:0;transition:opacity .45s;pointer-events:none}.world-map[data-active]:not([data-active=""]) .map-dimmer{opacity:.13}
-.map-highlight{opacity:0;transition:opacity .45s;pointer-events:none;filter:brightness(1.055) contrast(1.025)}
-.map-hotspot path{fill:transparent;stroke:transparent;stroke-width:2;cursor:pointer}.map-hotspot:focus{outline:none}.map-hotspot:focus-visible path{stroke:#e0d2b7;stroke-width:3;stroke-dasharray:9 6;fill:#efe9df0a}
-.map-caption{display:flex;gap:25px;align-items:center;justify-content:center;min-height:64px;border-bottom:1px solid var(--line);font-family:var(--serif);letter-spacing:2px}.map-selected-name{font-size:20px}.map-explore{font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:1px;color:#cbb994}.map-explore[hidden]{display:none}
-.map-idle,.map-effects{pointer-events:none}.map-haze{fill:none;stroke:#e7e3da;stroke-width:13;opacity:.04;stroke-linecap:round;animation:map-haze 32s ease-in-out infinite alternate}.haze-two{animation-delay:-16s;stroke-width:9;opacity:.025}
-.map-effect{opacity:0;transition:opacity .4s}.map-effect *{vector-effect:non-scaling-stroke}.map-effect path{fill:none;stroke-linecap:round}.local-mist{stroke:#d0d6dc;stroke-width:5;opacity:.1;animation:map-mist 10s ease-in-out infinite alternate}.ash-mist{stroke:#b8a89b;stroke-width:3}
-.water-light{stroke:#e3ddd0;stroke-width:1;opacity:.25;stroke-dasharray:12 45;animation:map-water 9s linear infinite}.route-light{stroke:#e4d3a6;stroke-width:1;opacity:.35;stroke-dasharray:4 60;animation:map-water 8s linear infinite}
-.ocean-wave{stroke:#b4cada;stroke-width:1;opacity:.26;stroke-dasharray:16 35;animation:map-water 10s linear infinite}.abstract-wisp{stroke:#cec6b8;stroke-width:3;opacity:.06;animation:map-mist 13s ease-in-out infinite alternate}
-.pollen{fill:#ddd3a6;opacity:0;animation:map-pollen 7s ease-out infinite}.ember{fill:#bf7142;opacity:0;animation:map-ember 5s ease-out infinite}.glint{fill:#d6e0e5;opacity:0;animation:map-glint 6s ease-in-out infinite}.warm-light{fill:#d7aa73;opacity:.15;animation:map-warm 8s ease-in-out infinite}.delayed{animation-delay:-3s}
-.sacred-lines,.sacred-ring{fill:none;stroke:#c0a878;stroke-width:.6;opacity:.19;animation:map-sacred 9s ease-in-out infinite}.direction-light{fill:#dbc291;opacity:.3;animation:map-warm 9s ease-in-out infinite}
-.world-map[data-active="Drakvar"] .effect-drakvar,.world-map[data-active="Armonia"] .effect-armonia,.world-map[data-active="Serapha"] .effect-serapha,.world-map[data-active="Equira"] .effect-equira,.world-map[data-active="Nymora"] .effect-nymora,.world-map[data-active="Ignivar"] .effect-ignivar,.world-map[data-active="Veritasa"] .effect-veritasa{opacity:1}
-.world-map[data-active="Drakvar"] [data-region="Drakvar"],.world-map[data-active="Armonia"] [data-region="Armonia"],.world-map[data-active="Serapha"] [data-region="Serapha"],.world-map[data-active="Equira"] [data-region="Equira"],.world-map[data-active="Nymora"] [data-region="Nymora"],.world-map[data-active="Ignivar"] [data-region="Ignivar"],.world-map[data-active="Veritasa"] [data-region="Veritasa"]{opacity:1}
-.world-map *{animation-play-state:paused}.world-map[data-visible="true"] .map-idle *{animation-play-state:running}
-.world-map[data-visible="true"][data-active="Drakvar"] .effect-drakvar *,.world-map[data-visible="true"][data-active="Armonia"] .effect-armonia *,.world-map[data-visible="true"][data-active="Serapha"] .effect-serapha *,.world-map[data-visible="true"][data-active="Equira"] .effect-equira *,.world-map[data-visible="true"][data-active="Nymora"] .effect-nymora *,.world-map[data-visible="true"][data-active="Ignivar"] .effect-ignivar *,.world-map[data-visible="true"][data-active="Veritasa"] .effect-veritasa *{animation-play-state:running}
-@keyframes map-haze{from{transform:translateX(-4px);opacity:.025}to{transform:translateX(7px);opacity:.055}}@keyframes map-mist{from{transform:translateX(-3px)}to{transform:translateX(6px)}}@keyframes map-water{to{stroke-dashoffset:-114}}@keyframes map-pollen{0%,100%{opacity:0;transform:translate(0,0)}35%{opacity:.35}80%{opacity:.07;transform:translate(8px,-14px)}}@keyframes map-ember{0%,100%{opacity:0;transform:translate(0,0)}30%{opacity:.5}90%{opacity:0;transform:translate(4px,-18px)}}@keyframes map-glint{0%,80%,100%{opacity:0}40%{opacity:.4}}@keyframes map-warm{0%,100%{opacity:.13}45%{opacity:.5}}@keyframes map-sacred{0%,100%{opacity:.1}50%{opacity:.24}}
-@media(hover:none),(pointer:coarse){.map-instruction-hover{display:none}.map-instruction-touch{display:block}.map-explore{min-height:44px;display:inline-flex;align-items:center;padding:0 12px}.map-caption{min-height:70px}.map-idle{display:none}}
-@media(max-width:850px){.world-map-section{margin-left:-2%;margin-right:-2%}.world-map-section .section-head{padding:0 2%}.map-selected-name{font-size:17px}.map-caption{gap:12px}.map-effect .pollen,.map-effect .abstract-wisp{display:none}}
-@media(prefers-reduced-motion:reduce){.world-map *{animation:none!important;transition:none!important}.map-idle,.map-effects{display:none}.map-dimmer,.map-highlight{transition:none}}
-
-@media(max-width:600px){.map-instruction-hover{display:none}.map-instruction-touch{display:block}.map-explore{min-height:44px;display:inline-flex;align-items:center;padding:0 12px}.map-idle{display:none}}
+.world-map-section { margin: 20px -25px 65px; }
+.world-map-section .section-head { padding: 0 25px; margin-bottom: 24px; }
+.world-map-section h2 { font-size: clamp(28px,3.4vw,43px); letter-spacing: .07em; }
+.map-instruction { font-size: 13px; margin: 18px 0 0; }
+.map-instruction-touch { display: none; }
+.world-map { position: relative; aspect-ratio: 3/2; background: #151413; isolation: isolate; border: 1px solid #504638; touch-action: pan-y pinch-zoom; }
+.world-map picture,.world-map img { display: block; width: 100%; height: auto; }
+.world-map-overlay { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; }
+.map-dimmer { fill: #131210; opacity: 0; transition: opacity .45s; pointer-events: none; }
+.world-map:not([data-active=""]) .map-dimmer { opacity: .11; }
+.map-highlight { opacity: 0; transition: opacity .45s; pointer-events: none; filter: brightness(1.055) contrast(1.025); }
+.map-highlight[data-state="active"] { opacity: 1; }
+.map-hotspot path { fill: transparent; stroke: transparent; stroke-width: 2; cursor: pointer; }
+.map-hotspot:focus { outline: none; }
+.map-hotspot:focus-visible path { stroke: #e0d2b7; stroke-width: 3; stroke-dasharray: 9 6; fill: #efe9df0a; }
+/* Stable atlas annotation, above the lower-right coastal margin. */
+.map-caption { position: absolute; z-index: 2; right: clamp(14px,2.7%,35px); bottom: clamp(14px,3%,35px); display: flex; flex-direction: column; align-items: flex-end; gap: 7px; padding: 15px 0 0 28px; color: #f0e9dd; font-family: var(--serif); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .35s,visibility .35s; text-shadow: 0 1px 3px #100f0d; }
+.map-caption::before { content: ''; width: 34px; height: 1px; background: #b4a17c; opacity: .7; }
+.map-caption::after { content: ''; position: absolute; z-index: -1; inset: -20px -12px -12px -35px; background: radial-gradient(ellipse at 80% 70%,#14120fdb,transparent 74%); pointer-events: none; }
+.map-caption[data-shown="true"] { opacity: 1; visibility: visible; pointer-events: auto; }
+.map-selected-name { font-size: clamp(17px,1.9vw,25px); letter-spacing: .12em; line-height: 1.1; }
+.map-explore { display: inline-flex; align-items: center; min-height: 36px; font-family: Arial,Helvetica,sans-serif; font-size: 12px; letter-spacing: .08em; color: #e1d2b4; pointer-events: auto; }
+.map-explore:hover { color: #fff8e9; }
+.map-explore:focus-visible { outline: 1px solid #e0d2b7; outline-offset: 5px; }
+.map-explore[hidden] { display: none; }
+/* Decorative layers never intercept map or navigation interaction. */
+.map-idle,.map-effects,.map-highlight { pointer-events: none; }
+.map-effect { opacity: 0; transition: opacity .5s; }
+.map-effect[data-state="active"] { opacity: 1; }
+.map-effect * { vector-effect: non-scaling-stroke; }
+.map-effect path,.map-idle path { fill: none; stroke-linecap: round; }
+.map-haze { stroke: #e7e3da; stroke-width: 10; opacity: .025; animation: map-haze 32s ease-in-out infinite alternate; }
+.haze-two { animation-delay: -16s; stroke-width: 7; }
+.idle-water { stroke: #deddd5; stroke-width: .65; opacity: .1; stroke-dasharray: 6 70; animation: map-water 24s linear infinite; }
+.idle-reflection { fill: #dfded7; opacity: 0; animation: map-rare-light 21s ease-in-out infinite; }
+.local-mist { stroke: #d0d6dc; stroke-width: 5; opacity: .09; }
+.ash-mist { stroke: #b8a89b; stroke-width: 3; }
+.settlement-smoke { stroke: #d1d1cc; stroke-width: 2.5; opacity: .1; }
+.warm-smoke { stroke: #ada195; }
+.water-light { stroke: #e3ddd0; stroke-width: 1; opacity: .28; stroke-dasharray: 12 45; }
+.route-light { stroke: #e4d3a6; stroke-width: 1; opacity: .3; stroke-dasharray: 4 60; }
+.ocean-wave { stroke: #b4cada; stroke-width: 1; opacity: .24; stroke-dasharray: 16 35; }
+.abstract-wisp { stroke: #b9b4ac; stroke-width: 2.5; opacity: .06; }
+.pollen { fill: #ddd3a6; opacity: 0; }
+.ember { fill: #bf7142; opacity: 0; }
+.ash { fill: #b6a794; opacity: 0; }
+.glint { fill: #d6e0e5; opacity: 0; }
+.warm-light { fill: #d7aa73; opacity: .15; }
+.heat-trace { stroke: #be7140; stroke-width: 2; opacity: .08; }
+.map-effect .leaf-shadow { fill: #a7aa7c; stroke: none; opacity: .18; }
+.sacred-lines,.sacred-ring { fill: none; stroke: #c0a878; stroke-width: .6; opacity: 0; }
+.sacred-ring { transform-box: fill-box; transform-origin: center; }
+.direction-light { fill: #dbc291; opacity: .12; }
+/* Only the active kingdom owns animations. Deactivation cancels them; the layer fades. */
+.map-effect[data-state="active"] .local-mist { animation: map-mist 12s ease-in-out infinite alternate; }
+.map-effect[data-state="active"] .settlement-smoke { animation: map-smoke 11s ease-in-out infinite alternate; }
+.map-effect[data-state="active"] .water-light { animation: map-water 11s .3s linear infinite; }
+.map-effect[data-state="active"] .route-light { animation: map-water 10s linear infinite; }
+.map-effect[data-state="active"] .ocean-wave { animation: map-water 13s linear infinite; }
+.map-effect[data-state="active"] .abstract-wisp { animation: map-mist 16s ease-in-out infinite alternate; }
+.map-effect[data-state="active"] .pollen { animation: map-pollen 10s .7s ease-out infinite; }
+.map-effect[data-state="active"] .ember { animation: map-ember 8s ease-out infinite; }
+.map-effect[data-state="active"] .ash { animation: map-pollen 14s ease-out infinite; }
+.map-effect[data-state="active"] .glint { animation: map-glint 9s ease-in-out infinite; }
+.map-effect[data-state="active"] .warm-light,.map-effect[data-state="active"] .heat-trace { animation: map-warm 12s ease-in-out infinite; }
+.map-effect[data-state="active"] .leaf-shadow { animation: map-leaf 12s ease-in-out infinite; }
+.map-effect[data-state="active"] .direction-light { animation: map-direction 8s ease-in-out 1 both; }
+.map-effect[data-state="active"] .sacred-lines { animation: map-sacred 7s ease-in-out 1 both; }
+.map-effect[data-state="active"] .sacred-ring { animation: map-ripple 7s ease-out 1 both; }
+.map-effect[data-state="active"] .delayed { animation-delay: 2.8s; }
+.map-birds { display: none; pointer-events: none; }
+.map-birds path { fill: #242b25; stroke: none; }
+.world-map[data-birds="Armonia"] .map-birds { display: block; }
+.world-map[data-birds="Armonia"] .bird-flight { animation: map-bird-flight 6.2s 1.5s linear 1 both; }
+.world-map[data-birds="Armonia"] .bird-wing { transform-box: fill-box; transform-origin: center; animation: map-wing .75s 1.5s ease-in-out 9; }
+.world-map * { animation-play-state: paused !important; }
+.world-map[data-visible="true"][data-active=""] .map-idle *,.world-map[data-visible="true"] .map-effect[data-state="active"] * { animation-play-state: running !important; }
+.world-map:not([data-active=""]) .map-idle { opacity: 0; }
+.map-idle { transition: opacity .5s; }
+@keyframes map-haze { from { transform: translateX(-4px); opacity: .02; } to { transform: translateX(7px); opacity: .045; } }
+@keyframes map-water { to { stroke-dashoffset: -114; } }
+@keyframes map-rare-light { 0%,70%,85%,100% { opacity: 0; } 76% { opacity: .2; } }
+@keyframes map-mist { from { transform: translateX(-3px); } to { transform: translateX(6px); } }
+@keyframes map-smoke { from { transform: translate(0,1px); opacity: .07; } to { transform: translate(3px,-5px); opacity: .13; } }
+@keyframes map-pollen { 0%,100% { opacity: 0; transform: translate(0,0); } 35% { opacity: .26; } 80% { opacity: .04; transform: translate(8px,-14px); } }
+@keyframes map-ember { 0%,100% { opacity: 0; transform: translate(0,0); } 30% { opacity: .4; } 90% { opacity: 0; transform: translate(4px,-18px); } }
+@keyframes map-glint { 0%,80%,100% { opacity: 0; } 40% { opacity: .3; } }
+@keyframes map-warm { 0%,100% { opacity: .13; } 45% { opacity: .38; } }
+@keyframes map-leaf { 0%,100% { transform: translate(0,0); opacity: .12; } 50% { transform: translate(2px,1px); opacity: .22; } }
+@keyframes map-sacred { 0%,100% { opacity: 0; } 35%,65% { opacity: .17; } }
+@keyframes map-direction { 0%,100% { opacity: .12; } 45% { opacity: .4; } }
+@keyframes map-ripple { 0% { opacity: 0; transform: scale(.85); } 35% { opacity: .15; } 100% { opacity: 0; transform: scale(1.12); } }
+@keyframes map-bird-flight { 0% { opacity: 0; transform: translate(551px,275px); } 15% { opacity: .75; transform: translate(568px,266px); } 75% { opacity: .65; transform: translate(628px,243px); } 100% { opacity: 0; transform: translate(651px,236px); } }
+@keyframes map-wing { 0%,100% { transform: scaleY(.65); } 50% { transform: scaleY(1); } }
+@media(hover:none),(pointer:coarse) { .map-instruction-hover { display: none; } .map-instruction-touch { display: block; } .map-explore { min-height: 44px; padding: 0 4px; } .map-birds,.map-idle { display: none !important; } }
+@media(max-width:850px) { .world-map-section { margin-left: -2%; margin-right: -2%; } .world-map-section .section-head { padding: 0 2%; } .map-effect .pollen,.map-effect .ash,.map-effect .abstract-wisp,.map-birds { display: none !important; } .map-caption { gap: 3px; } }
+@media(max-width:600px) { .map-instruction-hover { display: none; } .map-instruction-touch { display: block; } .map-explore { min-height: 44px; font-size: 11px; } .map-idle { display: none; } .map-caption { bottom: 12px; right: 12px; padding-top: 8px; } }
+@media(prefers-reduced-motion:reduce) { .world-map * { animation: none !important; transition: none !important; } .map-idle,.map-effects { display: none; } }
+/* Compact, attached atlas annotation leaves the mobile kingdom centers exposed. */
+@media(max-width:600px) {
+  .map-caption { flex-direction: row; align-items: center; justify-content: flex-end; gap: 7px; width: 46%; bottom: 2px; right: 4px; padding: 0; }
+  .map-caption::before { position: absolute; top: 2px; right: 0; width: 24px; }
+  .map-selected-name { font-size: 14px; letter-spacing: .04em; white-space: nowrap; }
+  .map-explore { font-size: 10px; white-space: nowrap; flex-shrink: 0; }
+}
