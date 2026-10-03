@@ -40,6 +40,7 @@
     document.querySelectorAll('[data-i18n]').forEach(node => { node.textContent = translate(node.dataset.i18n); });
     document.querySelectorAll('[data-language]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.language === language)));
     updateFilters();
+    document.dispatchEvent(new CustomEvent('avaris:languagechange', {detail: {language}}));
   }
   document.querySelectorAll('[data-language]').forEach(button => button.addEventListener('click', () => applyLanguage(button.dataset.language, true)));
   const button = document.querySelector('.menu-toggle');
