@@ -64,7 +64,7 @@
       try {
         const patches=await this.prepare(kingdom);
         if(token!==this.generation) return;
-        this.patches=patches;
+        this.patches=patches;this.start();
         // Creature assets are loaded only when their kingdom is requested.
         // Mobile retains four birds and the dragon; water/heat use fewer strips.
         if ((kingdom==='armonia'||kingdom==='drakvar') ) {
@@ -73,7 +73,7 @@
           if(token!==this.generation) return;
           if(Date.now()-this.flights[kingdom]>30000) {
             const variants=src==='birds'?['#cf7b45','#d1b768','#728962','#7c9ba9'].map(color=>{const sheet=document.createElement('canvas');sheet.width=sprite.width;sheet.height=sprite.height;const c=sheet.getContext('2d');c.drawImage(sprite,0,0);c.globalCompositeOperation='source-atop';c.globalAlpha=.2;c.fillStyle=color;c.fillRect(0,0,sheet.width,sheet.height);return sheet;}):null;
-            this.actor={kind:src,sprite,variants,started:false};
+            this.actor={kind:src,sprite,variants,started:false,begin:this.elapsed};
           }
         }
         this.start();
@@ -154,7 +154,7 @@
     creature(t) {
             if(!this.actor)return;
       const dragon=this.actor.kind==='dragon';const delay=dragon?1:1.3;const duration=dragon?7.5:5.8;
-      const time=t-delay;
+      const time=t-(this.actor.begin||0)-delay;
       if(time<0)return;
       if(time>duration) {delete this.map.dataset.birds;delete this.map.dataset.dragon;this.actor=null;return;}
       if(!this.actor.started) {
