@@ -5,6 +5,7 @@
   const caption = section.querySelector('.map-selected-name');
   const annotation = map.querySelector('.map-caption');
   const environment = new window.AvarisEnvironment(map);
+  const audio = new window.AvarisMapAudio(map);
   const highlights = [...map.querySelectorAll('.map-highlight')];
   const explore = section.querySelector('.map-explore');
   const image = map.querySelector('img');
@@ -64,7 +65,7 @@
   document.addEventListener('click', event => {if (!map.contains(event.target)) activate(null, 'outside');});
   map.addEventListener('focusout', event => {if (!map.contains(event.relatedTarget)) activate(null, 'keyboard');});
   document.addEventListener('keydown', event => {if(event.key === 'Escape') activate(null, 'keyboard');});
-  function syncVisibility() {const visible=inViewport && !document.hidden;map.dataset.visible=String(visible);environment.setVisible(visible);}
+  function syncVisibility() {const visible=inViewport && !document.hidden;map.dataset.visible=String(visible);environment.setVisible(visible);audio.setVisible(visible);}
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {inViewport=entries[0].isIntersecting;syncVisibility();}, {threshold: .05});
     observer.observe(map);

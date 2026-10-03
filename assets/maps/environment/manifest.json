@@ -254,6 +254,61 @@
       "height": 88,
       "phase": 0,
       "mask": "assets/maps/environment/settlement-mask-ignivar.png"
+    },
+    {
+      "id": "mist-mask-veritasa-south",
+      "kingdom": "veritasa",
+      "kind": "mist",
+      "x": 1227,
+      "y": 822,
+      "width": 301,
+      "height": 178,
+      "phase": 0,
+      "mask": "assets/maps/environment/mist-mask-veritasa-south.png"
+    },
+    {
+      "id": "mist-mask-veritasa-west",
+      "kingdom": "veritasa",
+      "kind": "mist",
+      "x": 1041,
+      "y": 559,
+      "width": 161,
+      "height": 189,
+      "phase": 0,
+      "mask": "assets/maps/environment/mist-mask-veritasa-west.png"
+    },
+    {
+      "id": "lava-mask-ignivar",
+      "kingdom": "ignivar",
+      "kind": "lava",
+      "x": 549,
+      "y": 591,
+      "width": 559,
+      "height": 402,
+      "phase": 0,
+      "mask": "assets/maps/environment/lava-mask-ignivar.png"
+    },
+    {
+      "id": "heat-mask-ignivar",
+      "kingdom": "ignivar",
+      "kind": "heat",
+      "x": 824,
+      "y": 878,
+      "width": 194,
+      "height": 124,
+      "phase": 0,
+      "mask": "assets/maps/environment/heat-mask-ignivar.png"
+    },
+    {
+      "id": "heat-mask-serapha",
+      "kingdom": "serapha",
+      "kind": "heat",
+      "x": 1332,
+      "y": 347,
+      "width": 140,
+      "height": 60,
+      "phase": 0,
+      "mask": "assets/maps/environment/heat-mask-serapha.png"
     }
   ]
 }

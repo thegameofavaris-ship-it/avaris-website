@@ -41,7 +41,7 @@
     }
     async prepare(kingdom) {
       if (!this.ready) this.ready = Promise.all([
-        fetch(new URL('assets/maps/environment/manifest.json',document.baseURI)).then(r => {if(!r.ok)throw new Error('Map masks unavailable');return r.json();}),
+        fetch(new URL('assets/maps/environment/manifest.json?v=map-living-v2',document.baseURI)).then(r => {if(!r.ok)throw new Error('Map masks unavailable');return r.json();}),
         this.image(this.map.querySelector('img').currentSrc || this.map.querySelector('img').src)
       ]).then(([manifest,master]) => {this.manifest=manifest;this.master=master;});
       await this.ready;
@@ -66,12 +66,15 @@
         if(token!==this.generation) return;
         this.patches=patches;
         // Creature assets are loaded only when their kingdom is requested.
-        // Mobile keeps water/lighting but omits tiny wing details.
-        if ((kingdom==='armonia'||kingdom==='drakvar') && innerWidth>600) {
+        // Mobile retains four birds and the dragon; water/heat use fewer strips.
+        if ((kingdom==='armonia'||kingdom==='drakvar') ) {
           const src=kingdom==='drakvar'?'dragon':'birds';
-          const sprite=await this.image('assets/maps/environment/'+src+'-flight-v1.webp');
+          const sprite=await this.image('assets/maps/environment/'+src+'-flight-'+(src==='birds'?'v2':'v1')+'.webp');
           if(token!==this.generation) return;
-          if(Date.now()-this.flights[kingdom]>30000) this.actor={kind:src,sprite,started:false};
+          if(Date.now()-this.flights[kingdom]>30000) {
+            const variants=src==='birds'?['#cf7b45','#d1b768','#728962','#7c9ba9'].map(color=>{const sheet=document.createElement('canvas');sheet.width=sprite.width;sheet.height=sprite.height;const c=sheet.getContext('2d');c.drawImage(sprite,0,0);c.globalCompositeOperation='source-atop';c.globalAlpha=.2;c.fillStyle=color;c.fillRect(0,0,sheet.width,sheet.height);return sheet;}):null;
+            this.actor={kind:src,sprite,variants,started:false};
+          }
         }
         this.start();
       } catch(error) {
@@ -109,24 +112,28 @@
       let opacity=.65;
       if(p.kind==='river'||p.kind==='ocean') {
         const step=innerWidth<=600?8:5;
-        const amplitude=p.kind==='ocean'?1.9:1.25;
+        const amplitude=p.kind==='ocean'?5.8:4.4;
         for(let y=0;y<h;y+=step) {
-          const offset=Math.sin(y*.065+t*1.25+p.x*.03)*amplitude;
-          const sy=Math.min(h-step,Math.max(0,y+Math.cos(y*.08+t*.75)*.8));
+          const offset=Math.sin(y*.065+t*1.85+p.x*.03)*amplitude;
+          const sy=Math.min(h-step,Math.max(0,y+Math.cos(y*.08+t*1.1)*2.4));
           c.drawImage(p.source,0,sy,w,Math.min(step,h-y),offset,y,w,Math.min(step,h-y)+.25);
         }
-        opacity=.76;
+        opacity=.96;
       } else if(p.kind==='fall') {
         // Two downward-moving copies crossfade. The waterfall mask itself stays fixed.
         for(let phase=0;phase<2;phase++) {
-          const flow=(t*.65+phase*.5)%1;
+          const flow=(t*.85+phase*.5)%1;
           c.globalAlpha=Math.sin(flow*Math.PI)*.75;
-          c.drawImage(p.source,0,flow*7-2);
+          c.drawImage(p.source,0,flow*24-7);
         }
-        opacity=.86;
+        opacity=.98;
       } else if(p.kind==='mist'||p.kind==='smoke') {
-        c.drawImage(p.source,Math.sin(t*.35+p.x)*2.4,-1.4-Math.sin(t*.27)*1.3);
-        opacity=p.kind==='mist'?.4:.58;
+        c.drawImage(p.source,Math.sin(t*.3+p.x)*10,-4-Math.sin(t*.23)*5);
+        opacity=p.kind==='mist'?.7:.88;
+      } else if(p.kind==='lava'||p.kind==='heat') {
+        const lava=p.kind==='lava',step=innerWidth<=600?8:4;
+        for(let y=0;y<h;y+=step){const shift=Math.sin(y*.12-t*(lava?1.7:2.3))* (lava?4.5:1.8);const sy=Math.max(0,Math.min(h-step,y-(lava?(t*8)%14:0)));c.drawImage(p.source,0,sy,w,Math.min(step,h-y),shift,y,w,Math.min(step,h-y)+.3);}
+        if(lava){c.globalCompositeOperation='screen';c.globalAlpha=.13+.08*Math.sin(t*2.7);c.fillStyle='#f57b30';c.fillRect(0,0,w,h);c.globalCompositeOperation='source-over';}opacity=lava?.98:.28;
       } else if(p.kind==='foliage') {
         c.drawImage(p.source,Math.sin(t*.8)*.7,Math.cos(t*.6)*.35);opacity=.32;
       } else {
@@ -145,8 +152,7 @@
       this.ctx.globalAlpha=opacity*Math.min(1,t/ .7);this.ctx.drawImage(p.buffer,p.x,p.y);
     }
     creature(t) {
-      if(innerWidth<=600) {delete this.map.dataset.birds;delete this.map.dataset.dragon;this.actor=null;return;}
-      if(!this.actor)return;
+            if(!this.actor)return;
       const dragon=this.actor.kind==='dragon';const delay=dragon?1:1.3;const duration=dragon?7.5:5.8;
       const time=t-delay;
       if(time<0)return;
@@ -154,22 +160,24 @@
       if(!this.actor.started) {
         this.actor.started=true;this.flights[this.active]=Date.now();
         this.map.dataset[dragon?'dragon':'birds']=dragon?'Drakvar':'Armonia';
+        this.map.dispatchEvent(new CustomEvent('avaris:map-flight',{detail:{kind:dragon?'dragon':'birds'}}));
       }
-      const count=dragon?1:4;
+      const count=dragon?1:(innerWidth<=600?4:6);
       for(let i=0;i<count;i++) {
         const u=Math.max(0,Math.min(1,(time-i*.14)/duration));
         const fade=Math.min(1,u/.14,(1-u)/.19);
-        const width=dragon?100:29-i*2;
-        const height=width*(dragon?224/192:118/96);
-        const x=dragon?66+u*226:535+u*170-i*13;
-        const y=dragon?42-u*19-Math.sin(u*Math.PI)*8:194-u*21+i*8+Math.sin(u*4+i)*1.2;
+        const width=dragon?148:46-i*2;
+        const height=width*(dragon?224/192:128/128);
+        const x=dragon?115+u*205:525+u*180-i*13;
+        const y=dragon?-20+u*8-Math.sin(u*Math.PI)*8:190-u*29+i*8+Math.sin(u*4+i)*1.2;
         const sequence=dragon?[0,1,2,3,4,5,6,7,7,7]:[0,1,2,3,4,5,6,7];
         const progress=(time/(dragon?1.8:.78)+i*.27)*sequence.length;
         const index=Math.floor(progress)%sequence.length;const mix=progress%1;
-        const fw=dragon?192:96,fh=dragon?224:118;
+        const fw=dragon?192:128,fh=dragon?224:128;
         for(const [frame,alpha] of [[sequence[index],1-mix],[sequence[(index+1)%sequence.length],mix]]) {
-          this.ctx.globalAlpha=Math.max(0,fade)*alpha*.9;
-          this.ctx.drawImage(this.actor.sprite,frame*fw,0,fw,fh,x,y,width,height);
+          this.ctx.globalAlpha=Math.max(0,fade)*alpha;
+          this.ctx.filter='none';
+          this.ctx.drawImage(dragon?this.actor.sprite:this.actor.variants[i%4],frame*fw,0,fw,fh,x,y,width,height);
         }
       }
     }
@@ -180,11 +188,16 @@
       const path=this.map.querySelector('[data-kingdom="'+this.active[0].toUpperCase()+this.active.slice(1)+'"] path');
       if(path)c.clip(new Path2D(path.getAttribute('d')));
       for(const p of this.patches)this.patch(p,this.elapsed);
-      if(this.active==='ignivar' && innerWidth>600) {
+      if(this.active==='ignivar' ) {
         // Four tiny ash flecks drift with the existing plume, never orbit or emit light.
         for(let i=0;i<4;i++) {const u=(this.elapsed/11+i*.23)%1;c.globalAlpha=Math.sin(u*Math.PI)*.2;c.fillStyle='#b3a89c';c.fillRect(659+i*17+u*8,641-i*5-u*13,1,1.2);}
       }
-      this.creature(this.elapsed);c.restore();c.globalAlpha=1;
+      if(this.active==='equira') {
+        // Five short-lived reflections at painted central waterways, never an orbit.
+        const points=[[731,522],[824,507],[890,535],[989,475],[703,550]];
+        for(let i=0;i<points.length;i++){const u=(this.elapsed/7+i*.19)%1;const a=Math.pow(Math.sin(u*Math.PI),8)*.55;c.globalAlpha=a;c.fillStyle=i%2?'#b9a17a':'#f2e9d4';const [x,y]=points[i];c.beginPath();c.ellipse(x+Math.sin(u*3)*2,y-u*6,1.3,.7,0,0,Math.PI*2);c.fill();}
+      }
+      this.creature(this.elapsed);c.filter='none';c.restore();c.globalAlpha=1;
     }
   }
   window.AvarisEnvironment=AvarisEnvironment;

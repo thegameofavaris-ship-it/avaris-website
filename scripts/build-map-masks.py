@@ -4,7 +4,7 @@ import json, re, io, os
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 ROOT = Path(__file__).resolve().parents[1]
-MASTER = ROOT / 'assets/maps/avaris-world-map-canon-v1.png'
+MASTER = ROOT / 'assets/maps/avaris-world-map-living-base-v2.webp'
 OUT = ROOT / 'assets/maps/environment'
 OUT.mkdir(exist_ok=True)
 def save_mask(image,path):
@@ -64,6 +64,11 @@ add('smoke-mask-ignivar-north','ignivar','smoke',[(618,578),(716,581),(777,618),
 add('smoke-mask-ignivar-south','ignivar','smoke',[(540,829),(608,822),(638,855),(641,891),(592,912),(533,879)],white,3)
 add('fire-mask-ignivar','ignivar','fire',[(564,642),(679,588),(860,620),(936,711),(974,846),(1107,922),(1090,991),(807,1002),(648,913),(538,864)],fire,1.1)
 add('settlement-mask-ignivar','ignivar','settlement',box(748,861,89,81),warm,1)
+add('mist-mask-veritasa-south','veritasa','mist',[(1230,870),(1418,827),(1520,852),(1520,965),(1360,995),(1264,971)],white,4)
+add('mist-mask-veritasa-west','veritasa','mist',[(1050,605),(1130,565),(1194,634),(1181,702),(1104,745),(1058,698)],white,4)
+add('lava-mask-ignivar','ignivar','lava',[(564,642),(679,588),(860,620),(936,711),(974,846),(1107,922),(1090,991),(807,1002),(648,913),(538,864)],fire,1.1)
+add('heat-mask-ignivar','ignivar','heat',box(837,891,167,97),None,5)
+add('heat-mask-serapha','serapha','heat',box(1345,360,113,33),None,5)
 (OUT/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
 for path in OUT.glob('*.png'):Image.open(path).verify()
 print('Derived',len(manifest['patches']),'paint masks; master unchanged.')
