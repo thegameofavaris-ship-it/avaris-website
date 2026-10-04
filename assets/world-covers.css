@@ -1,0 +1,8 @@
+/* Applies exclusively to the six World cover entries. */
+.world-cover-entries{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:50px 28px;margin-bottom:70px}
+.world-cover-entry{min-width:0;border-top:1px solid var(--line);padding-top:14px;scroll-margin-top:30px}
+.world-cover-entry figure{margin:0;background:#191817}
+.world-cover-entry img{display:block;width:100%;height:auto;object-fit:contain}
+.world-cover-entry h2{font-family:var(--serif);font-size:clamp(25px,2.7vw,38px);line-height:1.35;margin:23px 0 0;color:var(--ink);overflow-wrap:break-word}
+@media(max-width:900px){.world-cover-entries{gap:36px 22px}.world-cover-entry h2{font-size:28px}}
+@media(max-width:700px){.world-cover-entries{grid-template-columns:minmax(0,1fr);gap:42px}.world-cover-entry h2{font-size:30px;margin-top:20px}}
