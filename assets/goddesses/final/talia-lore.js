@@ -132,44 +132,44 @@ Object.assign(window.AvarisLocale.messages, {
     "en": "The people of Veritasa often do not ask Talia to prove them right. At least, in the ideal of the teaching, they should not. There is an older prayer spoken when turning to Talia: “Show me not what I want to see, but what I need to see.” Someone caught in a disagreement may turn to her to be able to make the right decision. Before an important judgment, a ruler may pray to be able to notice their own prejudice."
   },
   "gf.talia.s7.p1": {
-    "tr": "Bir insan sevdiği kişinin kendisine söylediği bir şeyin doğru olup olmadığını öğrenmek isteyebilir. Fakat Talia'nın öğretisi burada acımasız sayılabilecek bir uyarıda bulunur: Gerçeği istemeden önce onunla ne yapacağını düşün. Çünkü öğrenilen bir gerçek yeniden bilinmez hâle getirilemez. Adalet",
-    "en": "A person may want to learn whether something a loved one told them is true. Yet Talia’s teaching offers a warning here that might be considered merciless: Before asking for the truth, think about what you will do with it. Because a truth once learned cannot be made unknown again. Justice"
+    "tr": "Bir insan sevdiği kişinin kendisine söylediği bir şeyin doğru olup olmadığını öğrenmek isteyebilir. Fakat Talia'nın öğretisi burada acımasız sayılabilecek bir uyarıda bulunur: Gerçeği istemeden önce onunla ne yapacağını düşün. Çünkü öğrenilen bir gerçek yeniden bilinmez hâle getirilemez.",
+    "en": "A person may want to learn whether something a loved one told them is true. Yet Talia’s teaching offers a warning here that might be considered merciless: Before asking for the truth, think about what you will do with it. Because a truth once learned cannot be made unknown again."
   },
   "gf.talia.s8.heading": {
-    "tr": "Talia'nın adaleti intikam değildir.",
-    "en": "Talia’s justice is not revenge."
+    "tr": "Adalet",
+    "en": "Justice"
   },
   "gf.talia.s8.p0": {
-    "tr": "Cezanın amacı yalnızca acı çektirmek olduğunda bunun adalet olmaktan çıkabileceğine inanır. Fakat bu, Talia'nın cezaya karşı olduğu anlamına da gelmez. Bazı eylemlerin sonuçları olmalıdır. Bazı sınırlar korunmalıdır. Bazı insanlar başkalarına yeniden zarar veremeyecek şekilde durdurulmalıdır. Talia'nın merhameti, mağdurun acısını görmezden gelerek failin hikâyesini merkeze koymaz.",
-    "en": "She believes that when punishment’s only purpose is to inflict pain, it can cease to be justice. Yet this does not mean Talia opposes punishment, either. Some actions must have consequences. Some boundaries must be preserved. Some people must be stopped in a way that prevents them from harming others again. Talia’s compassion does not center the perpetrator’s story while ignoring the victim’s pain."
+    "tr": "Talia'nın adaleti intikam değildir. Cezanın amacı yalnızca acı çektirmek olduğunda bunun adalet olmaktan çıkabileceğine inanır. Fakat bu, Talia'nın cezaya karşı olduğu anlamına da gelmez. Bazı eylemlerin sonuçları olmalıdır. Bazı sınırlar korunmalıdır. Bazı insanlar başkalarına yeniden zarar veremeyecek şekilde durdurulmalıdır. Talia'nın merhameti, mağdurun acısını görmezden gelerek failin hikâyesini merkeze koymaz.",
+    "en": "Talia’s justice is not revenge. She believes that when punishment’s only purpose is to inflict pain, it can cease to be justice. Yet this does not mean Talia opposes punishment, either. Some actions must have consequences. Some boundaries must be preserved. Some people must be stopped in a way that prevents them from harming others again. Talia’s compassion does not center the perpetrator’s story while ignoring the victim’s pain."
   },
   "gf.talia.s8.p1": {
-    "tr": "İki tarafı anlamak, iki tarafın eşit derecede haklı olduğunu kabul etmek değildir. Bu ayrım onun öğretisinin en önemli parçalarından biridir. Kardeşleri Arasında Talia Talia kardeşlerinin söylediklerini dinlemek konusunda sabırlıdır.",
-    "en": "Understanding both sides does not mean accepting that both are equally right. This distinction is one of the most important parts of her teaching. Talia Among Her Sisters Talia is patient about listening to what her sisters say."
+    "tr": "İki tarafı anlamak, iki tarafın eşit derecede haklı olduğunu kabul etmek değildir. Bu ayrım onun öğretisinin en önemli parçalarından biridir.",
+    "en": "Understanding both sides does not mean accepting that both are equally right. This distinction is one of the most important parts of her teaching."
   },
   "gf.talia.s9.heading": {
-    "tr": "Fakat onların tanrıça olması, Talia'nın gözünde onları hakikatin üzerinde tutmaz.",
-    "en": "Yet being goddesses does not place them above truth in Talia’s eyes."
+    "tr": "Kardeşleri Arasında Talia",
+    "en": "Talia Among Her Sisters"
   },
   "gf.talia.s9.p0": {
-    "tr": "Kardeşlerinden biri hata yaptığında bunu görmezden gelmez. Onları sevmesi de bunu değiştirmez. Bu nedenle Talia bazen kız kardeşlerinin duymak istemediği şeyleri söyleyen kişi olabilir. Nora olabilecekleri görür. Yuna sonuçların dengesini düşünür. Talia ise bütün bunların ortasında başka bir soru sorar: “Gerçekte ne oldu?” Bu üç bakış birbirine yakın görünse de farklıdır.",
-    "en": "When one of her sisters makes a mistake, she does not ignore it. Loving them does not change this, either. For this reason, Talia may sometimes be the one who says things her sisters do not want to hear. Nora sees what might happen. Yuna considers the balance of consequences. In the middle of all this, Talia asks another question: “What truly happened?” Although these three perspectives seem close, they are different."
+    "tr": "Talia kardeşlerinin söylediklerini dinlemek konusunda sabırlıdır. Fakat onların tanrıça olması, Talia'nın gözünde onları hakikatin üzerinde tutmaz. Kardeşlerinden biri hata yaptığında bunu görmezden gelmez. Onları sevmesi de bunu değiştirmez. Bu nedenle Talia bazen kız kardeşlerinin duymak istemediği şeyleri söyleyen kişi olabilir. Nora olabilecekleri görür.",
+    "en": "Talia is patient about listening to what her sisters say. Yet being goddesses does not place them above truth in Talia’s eyes. When one of her sisters makes a mistake, she does not ignore it. Loving them does not change this, either. For this reason, Talia may sometimes be the one who says things her sisters do not want to hear. Nora sees what might happen."
   },
   "gf.talia.s9.p1": {
-    "tr": "Nora olasılıkla, Yuna dengeyle, Talia ise hakikat ve hükümle ilgilenir. Karakter Talia sakin ve zariftir fakat pasif değildir. İnsanları konuşmaya zorlamaktansa beklemeyi tercih eder. Sessizlikten rahatsız olmaz. Karşısındaki kişi kendini savunurken onu bölmeden dinleyebilir.",
-    "en": "Nora concerns herself with possibility, Yuna with balance, and Talia with truth and judgment. Character Talia is calm and graceful, but not passive. She prefers waiting to forcing people to speak. Silence does not disturb her. She can listen without interrupting while the person opposite her defends themselves."
+    "tr": "Yuna sonuçların dengesini düşünür. Talia ise bütün bunların ortasında başka bir soru sorar: “Gerçekte ne oldu?” Bu üç bakış birbirine yakın görünse de farklıdır. Nora olasılıkla, Yuna dengeyle, Talia ise hakikat ve hükümle ilgilenir.",
+    "en": "Yuna considers the balance of consequences. In the middle of all this, Talia asks another question: “What truly happened?” Although these three perspectives seem close, they are different. Nora concerns herself with possibility, Yuna with balance, and Talia with truth and judgment."
   },
   "gf.talia.s10.heading": {
-    "tr": "Bu özelliği bazen insanlarda yanlış bir güven yaratır.",
-    "en": "This quality sometimes creates a false sense of security in people."
+    "tr": "Karakter",
+    "en": "Character"
   },
   "gf.talia.s10.p0": {
-    "tr": "Çünkü Talia'nın sizi anlaması, sizinle aynı fikirde olduğu anlamına gelmez. Onun en güçlü özelliklerinden biri duygusal anlayış ile rasyonel hükmü birbirinden ayırabilmesidir. Fakat Talia'nın kendi zayıflığı da burada ortaya çıkar. Her gerçeğin altında başka bir neden aramak, bazen karar vermeyi zorlaştırabilir. Bir noktada anlamaya devam etmek yerine hüküm vermek gerekir.",
-    "en": "Because Talia understanding you does not mean she agrees with you. One of her strongest qualities is being able to separate emotional understanding from rational judgment. Yet Talia’s own weakness emerges here, too. Seeking another cause beneath every truth can sometimes make deciding difficult. At some point, one must pass judgment rather than keep trying to understand."
+    "tr": "Talia sakin ve zariftir fakat pasif değildir. İnsanları konuşmaya zorlamaktansa beklemeyi tercih eder. Sessizlikten rahatsız olmaz. Karşısındaki kişi kendini savunurken onu bölmeden dinleyebilir. Bu özelliği bazen insanlarda yanlış bir güven yaratır. Çünkü Talia'nın sizi anlaması, sizinle aynı fikirde olduğu anlamına gelmez. Onun en güçlü özelliklerinden biri duygusal anlayış ile rasyonel hükmü birbirinden ayırabilmesidir.",
+    "en": "Talia is calm and graceful, but not passive. She prefers waiting to forcing people to speak. Silence does not disturb her. She can listen without interrupting while the person opposite her defends themselves. This quality sometimes creates a false sense of security in people. Because Talia understanding you does not mean she agrees with you. One of her strongest qualities is being able to separate emotional understanding from rational judgment."
   },
   "gf.talia.s10.p1": {
-    "tr": "Ve Talia'nın taşıdığı sorumluluk tam olarak budur.",
-    "en": "And this is exactly the responsibility Talia bears."
+    "tr": "Fakat Talia'nın kendi zayıflığı da burada ortaya çıkar. Her gerçeğin altında başka bir neden aramak, bazen karar vermeyi zorlaştırabilir. Bir noktada anlamaya devam etmek yerine hüküm vermek gerekir. Ve Talia'nın taşıdığı sorumluluk tam olarak budur.",
+    "en": "Yet Talia’s own weakness emerges here, too. Seeking another cause beneath every truth can sometimes make deciding difficult. At some point, one must pass judgment rather than keep trying to understand. And this is exactly the responsibility Talia bears."
   },
   "gf.talia.quote": {
     "tr": "“Gerçek, ışıkla değil; gözle görülür.”",
