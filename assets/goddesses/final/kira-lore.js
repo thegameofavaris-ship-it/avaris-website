@@ -140,8 +140,8 @@ Object.assign(window.AvarisLocale.messages, {
     "en": "Kira and Her Body"
   },
   "gf.kira.s7.p0": {
-    "tr": "Kira'nın olağanüstü derecede ince, neredeyse hastalıklı görünen bedeni onun karakter tasarımının önemli bir parçasıdır. Bu görünümü basitçe “zarif” veya estetik bir özellik olarak ele almıyoruz. Kira kendisini de sınırlarının dışında zorlayan biridir. Uyku, dinlenme, bedenin ihtiyaçları ve fiziksel sınırlar onun için aşılması gereken engellere dönüşebilir.",
-    "en": "Kira’s extraordinarily thin, almost sickly-looking body is an important part of her character design. We do not treat this appearance simply as “elegant” or as an aesthetic feature. Kira also pushes herself beyond her limits. Sleep, rest, the body’s needs, and physical limits can become obstacles to overcome for her."
+    "tr": "Kira kendisini de sınırlarının dışında zorlayan biridir. Uyku, dinlenme, bedeninin ihtiyaçları ve fiziksel sınırlar onun için aşılması gereken engellere dönüşebilir.",
+    "en": "Kira also pushes herself beyond her limits. Sleep, rest, the body’s needs, and physical limits can become obstacles to overcome for her."
   },
   "gf.kira.s7.p1": {
     "tr": "Bu nedenle bedeni, Kira'nın kendi felsefesinin bedelini kendisinin de ödediğini gösterir. Başkalarından istediği şeyi yalnızca başkalarına dayatan biri değildir. Kendisini de tüketebilir. Ve belki de bu yüzden kendi davranışındaki tehlikeyi fark etmesi daha zordur.",
