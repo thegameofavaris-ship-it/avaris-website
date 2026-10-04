@@ -1,1 +1,62 @@
-Object.assign(window.AvarisLocale.messages, {"goddesses.0": {"en": "Balance", "tr": "Denge"}, "goddesses.1": {"en": "Domain", "tr": "Etki alanı"}, "goddesses.2": {"en": "Balance, life and death, souls, shadows.", "tr": "Denge, yaşam ve ölüm, ruhlar, gölgeler."}, "goddesses.3": {"en": "Mythology", "tr": "Mitoloji"}, "goddesses.4": {"en": "The second-born sister leads the sisters in the mythology of Avaris.", "tr": "İkinci doğan kız kardeş, Avaris mitolojisinde kardeşlere önderlik eder."}, "goddesses.5": {"en": "Kingdom", "tr": "Krallık"}, "goddesses.6": {"en": "Portraits & details", "tr": "Portreler ve detaylar"}, "goddesses.7": {"en": "Balance", "tr": "Denge"}, "goddesses.8": {"en": "Balance, life and death, souls, shadows.", "tr": "Denge, yaşam ve ölüm, ruhlar, gölgeler."}, "goddesses.9": {"en": "Night", "tr": "Gece"}, "goddesses.10": {"en": "Domain", "tr": "Etki alanı"}, "goddesses.11": {"en": "Night, ocean, stars, prophecy, wisdom.", "tr": "Gece, okyanus, yıldızlar, kehanet, bilgelik."}, "goddesses.12": {"en": "Mythology", "tr": "Mitoloji"}, "goddesses.13": {"en": "The oldest sister, the first-born twin by minutes, deliberately remains in the background.", "tr": "En büyük kız kardeş, dakikalarla ilk doğan ikizdir; bilinçli olarak geri planda kalır."}, "goddesses.14": {"en": "Kingdom", "tr": "Krallık"}, "goddesses.15": {"en": "Portraits & details", "tr": "Portreler ve detaylar"}, "goddesses.16": {"en": "Night", "tr": "Gece"}, "goddesses.17": {"en": "Night, ocean, stars, prophecy, wisdom.", "tr": "Gece, okyanus, yıldızlar, kehanet, bilgelik."}, "goddesses.18": {"en": "Truth", "tr": "Hakikat"}, "goddesses.19": {"en": "Domain", "tr": "Etki alanı"}, "goddesses.20": {"en": "Truth, justice, compassion, spiritual understanding, neutrality.", "tr": "Hakikat, adalet, merhamet, ruhsal anlayış, tarafsızlık."}, "goddesses.21": {"en": "Kingdom", "tr": "Krallık"}, "goddesses.22": {"en": "Portraits & details", "tr": "Portreler ve detaylar"}, "goddesses.23": {"en": "Truth", "tr": "Hakikat"}, "goddesses.24": {"en": "Truth, justice, compassion, spiritual understanding, neutrality.", "tr": "Hakikat, adalet, merhamet, ruhsal anlayış, tarafsızlık."}, "goddesses.25": {"en": "War", "tr": "Savaş"}, "goddesses.26": {"en": "Domain", "tr": "Etki alanı"}, "goddesses.27": {"en": "Strategy, combat, discipline, defense.", "tr": "Strateji, savaş, disiplin, savunma."}, "goddesses.28": {"en": "Kingdom", "tr": "Krallık"}, "goddesses.29": {"en": "Portraits & details", "tr": "Portreler ve detaylar"}, "goddesses.30": {"en": "War", "tr": "Savaş"}, "goddesses.31": {"en": "Strategy, combat, discipline, defense.", "tr": "Strateji, savaş, disiplin, savunma."}, "goddesses.32": {"en": "Life", "tr": "Yaşam"}, "goddesses.33": {"en": "Domain", "tr": "Etki alanı"}, "goddesses.34": {"en": "Nature, art, freedom, emotion, life.", "tr": "Doğa, sanat, özgürlük, duygu, yaşam."}, "goddesses.35": {"en": "Kingdom", "tr": "Krallık"}, "goddesses.36": {"en": "Portraits & details", "tr": "Portreler ve detaylar"}, "goddesses.37": {"en": "Life", "tr": "Yaşam"}, "goddesses.38": {"en": "Nature, art, freedom, emotion, life.", "tr": "Doğa, sanat, özgürlük, duygu, yaşam."}, "goddesses.39": {"en": "Destruction", "tr": "Yıkım"}, "goddesses.40": {"en": "Domain", "tr": "Etki alanı"}, "goddesses.41": {"en": "Destruction, ambition, anger, intelligence, science and dangerous knowledge, volcanic power.", "tr": "Yıkım, hırs, öfke, zekâ, bilim ve tehlikeli bilgi, volkanik güç."}, "goddesses.42": {"en": "Kingdom", "tr": "Krallık"}, "goddesses.43": {"en": "Portraits & details", "tr": "Portreler ve detaylar"}, "goddesses.44": {"en": "Destruction", "tr": "Yıkım"}, "goddesses.45": {"en": "Destruction, ambition, anger, intelligence, science and dangerous knowledge, volcanic power.", "tr": "Yıkım, hırs, öfke, zekâ, bilim ve tehlikeli bilgi, volkanik güç."}, "goddesses.46": {"en": "Healing", "tr": "Şifa"}, "goddesses.47": {"en": "Domain", "tr": "Etki alanı"}, "goddesses.48": {"en": "Healing, water, care, life, oasis.", "tr": "Şifa, su, özen, yaşam, vaha."}, "goddesses.49": {"en": "Kingdom", "tr": "Krallık"}, "goddesses.50": {"en": "Portraits & details", "tr": "Portreler ve detaylar"}, "goddesses.51": {"en": "Healing", "tr": "Şifa"}, "goddesses.52": {"en": "Healing, water, care, life, oasis.", "tr": "Şifa, su, özen, yaşam, vaha."}, "goddesses.53": {"en": "Seven sisters. Seven kingdoms.", "tr": "Yedi kız kardeş. Yedi krallık."}});
+Object.assign(window.AvarisLocale.messages, {
+  "gf.sisters": {
+    "tr": "Yedi kız kardeş. Yedi krallık.",
+    "en": "Seven sisters. Seven kingdoms."
+  },
+  "gf.yuna.title": {
+    "tr": "Denge Tanrıçası",
+    "en": "Goddess of Balance"
+  },
+  "gf.yuna.intro": {
+    "tr": "Yuna’nın gücü yaşam ile ölüm arasındaki sınırda var olur. Onun için bu iki kavram birbirinin karşıtı değildir; aynı döngünün birbirini tamamlayan iki parçasıdır. Birinin diğerini ortadan kaldırdığı yerde düzen bozulur.",
+    "en": "Yuna’s power exists at the boundary between life and death. To her, these two concepts are not opposites; they are two complementary parts of the same cycle. Where one eliminates the other, order breaks down."
+  },
+  "gf.nora.title": {
+    "tr": "Gece Tanrıçası",
+    "en": "Goddess of Night"
+  },
+  "gf.nora.intro": {
+    "tr": "Nora geleceği değişmez ve önceden yazılmış tek bir çizgi olarak görmez.",
+    "en": "Nora does not see the future as a single immutable, prewritten line."
+  },
+  "gf.talia.title": {
+    "tr": "Hakikat Tanrıçası",
+    "en": "Goddess of Truth"
+  },
+  "gf.talia.intro": {
+    "tr": "Talia için hakikat, yalnızca doğru ile yanlış arasındaki çizgi değildir.",
+    "en": "For Talia, truth is not merely the line between right and wrong."
+  },
+  "gf.dara.title": {
+    "tr": "Savaş Tanrıçası",
+    "en": "Goddess of War"
+  },
+  "gf.dara.intro": {
+    "tr": "Dara savaşın kendisini kutsal görmez.",
+    "en": "Dara does not see war itself as sacred."
+  },
+  "gf.lena.title": {
+    "tr": "Yaşam ve Yaratıcılık Tanrıçası",
+    "en": "Goddess of Life and Creativity"
+  },
+  "gf.lena.intro": {
+    "tr": "Lena için yaratmak yalnızca yoktan bir şey meydana getirmek değildir.",
+    "en": "For Lena, creating is not merely bringing something into being from nothing."
+  },
+  "gf.kira.title": {
+    "tr": "Yıkım Tanrıçası",
+    "en": "Goddess of Destruction"
+  },
+  "gf.kira.intro": {
+    "tr": "Kira için yıkım, yaratımın karşıtı değildir.",
+    "en": "For Kira, destruction is not the opposite of creation."
+  },
+  "gf.nilera.title": {
+    "tr": "Şifa Tanrıçası",
+    "en": "Goddess of Healing"
+  },
+  "gf.nilera.intro": {
+    "tr": "Nilera için şifa, bir yarayı kapatmak değildir.",
+    "en": "For Nilera, healing is not closing a wound."
+  }
+});

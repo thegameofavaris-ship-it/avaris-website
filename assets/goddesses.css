@@ -1,2 +1,55 @@
-.goddess-procession{display:grid;gap:60px;margin-bottom:60px}.goddess-row{display:grid;grid-template-columns:1.15fr 1fr;min-height:430px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(120deg,#181817,#101111)}.goddess-row:nth-child(even){direction:rtl}.goddess-row>*{direction:ltr}.goddess-row-art{position:relative;overflow:hidden;min-height:430px}.goddess-row-art img,.goddess-art img{position:absolute;width:400%;max-width:none;height:auto;left:-67%;top:0}.goddess-row-copy{align-self:center;padding:45px 12%}.goddess-row h2{font-size:clamp(42px,6vw,75px);margin:15px 0}.goddess-row p{line-height:1.8;color:var(--muted);max-width:34em}.goddess-title{color:var(--goddess-accent);font-size:18px;letter-spacing:2px}.goddess-row .card-foot{display:block;margin-top:35px;color:var(--goddess-accent)}.goddess-row:hover{border-color:var(--goddess-accent)}.goddess-header{padding:65px 0 35px}.goddess-header h1{font-size:clamp(65px,10vw,110px);margin:15px 0}.goddess-editorial{display:grid;grid-template-columns:1fr 1fr;gap:7%;align-items:center}.goddess-art{position:relative;overflow:hidden;aspect-ratio:2/3;margin:0;background:#191817}.goddess-copy section{padding:20px 0 30px;border-bottom:1px solid var(--line)}.goddess-copy h2,.goddess-reference h2{font-size:28px}.goddess-copy p{font-size:17px;line-height:1.9;color:var(--muted)}.goddess-kingdom{color:var(--goddess-accent);font-size:23px}.goddess-reference{margin-top:75px}.goddess-reference img{display:block;width:100%;height:auto}.goddess-sisters{display:flex;flex-wrap:wrap;gap:25px;padding:40px 0}.goddess-sisters [aria-current]{color:var(--goddess-accent);border-bottom:1px solid currentColor}@media(max-width:700px){.goddess-row,.goddess-editorial{grid-template-columns:1fr}.goddess-row-art{min-height:0;aspect-ratio:2/3}.goddess-row:nth-child(even){direction:ltr}.goddess-row-copy{padding:30px 8%}.goddess-procession{gap:30px}.goddess-reference{margin-top:40px}.goddess-header{padding-top:40px}}
-.goddess-row-art img{top:-45%}@media(max-width:700px){.goddess-row-art img{top:0}}
+/* Scoped to the goddess collection and character pages. */
+main.goddess-page,main.goddess-list{max-width:1440px;padding:0 clamp(24px,4.5vw,70px) 90px}
+.goddess-procession{display:grid;gap:72px;margin-bottom:30px}
+.goddess-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(120deg,#1c1a17,#151413);overflow:hidden}
+.goddess-row:nth-child(even) .goddess-row-art{order:2}
+.goddess-row-art{min-width:0;background:#191817}
+.goddess-row-art img{display:block;width:100%;height:auto;object-fit:contain}
+.goddess-row-copy{align-self:center;min-width:0;padding:clamp(25px,4vw,65px)}
+.goddess-row h2{font-size:clamp(42px,6vw,82px);margin:20px 0}
+.goddess-row p{max-width:32em;line-height:1.9;font-size:17px}
+.goddess-title{display:block;color:var(--goddess-accent);font-family:var(--serif);font-size:clamp(22px,2.1vw,30px);line-height:1.35;letter-spacing:.2px}
+.goddess-row .card-foot{display:block;margin-top:35px;color:var(--goddess-accent)}
+.goddess-row .card-foot span{font-size:15px;color:inherit}
+.goddess-row:hover{border-color:var(--goddess-accent)}
+.goddess-row:focus-visible{outline-offset:7px}
+.goddess-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(30px,5vw,80px);align-items:center;margin:40px 0 90px}
+.goddess-art{margin:0;min-width:0;background:#191817;border:1px solid var(--line)}
+.goddess-art img{display:block;width:100%;height:auto;object-fit:contain}
+.goddess-introduction{min-width:0;padding:30px 0}
+.goddess-introduction h1{font-size:clamp(66px,7.5vw,115px);margin:25px 0 20px}
+.goddess-domains{font-size:14px;line-height:2;color:var(--muted);margin:25px 0 35px}
+.goddess-introduction .rule{background:var(--goddess-accent)}
+.goddess-lead{font-family:var(--serif);font-size:clamp(22px,2.3vw,31px);line-height:1.55;color:var(--ink);margin:35px 0}
+.goddess-read{display:inline-flex;gap:15px;align-items:center;font-size:13px;color:var(--goddess-accent);padding:12px 0;border-bottom:1px solid var(--line)}
+.goddess-reading{display:grid;grid-template-columns:minmax(150px,210px) minmax(0,760px);gap:clamp(35px,6vw,95px);align-items:start;justify-content:center}
+.lore-index{position:sticky;top:35px;padding-top:8px}
+.lore-index nav{display:grid;gap:0;border-left:1px solid var(--line)}
+.lore-index a{display:block;padding:9px 0 9px 18px;color:var(--muted);font-size:12px;line-height:1.5}
+.lore-index a:hover{color:var(--goddess-accent)}
+.goddess-lore{min-width:0}
+.lore-section{display:grid;grid-template-columns:30px minmax(0,1fr);gap:16px;padding:0 0 55px;margin-bottom:55px;border-bottom:1px solid var(--line);scroll-margin-top:30px}
+.lore-number{color:var(--goddess-accent);font-size:11px;letter-spacing:1px;line-height:38px}
+.lore-section h2{font-size:clamp(28px,3vw,37px);line-height:1.25;margin-bottom:27px;text-wrap:balance}
+.lore-section p{font-size:17px;line-height:1.95;margin-bottom:19px;color:#c1bab0;overflow-wrap:break-word}
+.lore-section p:last-child{margin-bottom:0}
+.lore-section .domain-list{font-size:13px;letter-spacing:.4px;line-height:2.1;color:var(--goddess-accent);margin-bottom:28px}
+.goddess-main-quote{margin:30px auto 100px;padding:45px 30px;max-width:900px;text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.goddess-main-quote p{font-family:var(--serif);font-size:clamp(26px,3.5vw,43px);line-height:1.45;color:var(--ink);margin-bottom:22px;text-wrap:balance}
+.goddess-main-quote cite{font-size:12px;font-style:normal;text-transform:uppercase;letter-spacing:3px;color:var(--goddess-accent)}
+.goddess-reference{margin:0 0 70px}
+.goddess-reference>h2{font-size:clamp(32px,4vw,49px);margin-bottom:35px}
+.lore-spread{margin:0 0 35px;position:relative;background:#171613;border:1px solid var(--line)}
+.lore-spread img{display:block;width:100%;height:auto;object-fit:contain}
+.lore-captions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 35px}
+.lore-caption{display:grid;grid-template-columns:25px minmax(0,1fr);gap:12px;align-content:start;padding:24px 0;border-top:1px solid var(--line);scroll-margin-top:30px}
+.caption-number{font-size:11px;line-height:25px;color:var(--goddess-accent)}
+.lore-caption h3{font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.6;letter-spacing:1.5px;color:var(--goddess-accent);margin-bottom:14px;overflow-wrap:break-word}
+.lore-caption p{font-size:14px;line-height:1.85;margin:0;color:#bcb5ab}
+.goddess-sisters{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 30px;border-top:1px solid var(--line);padding:35px 0}
+.goddess-sisters a{padding:8px 0;font-family:var(--serif);font-size:22px}
+.goddess-sisters [aria-current]{color:var(--goddess-accent);border-bottom:1px solid currentColor}
+@media(max-width:1180px){.goddess-shell header{flex-wrap:wrap;padding:20px 5%;gap:20px}.goddess-shell .menu-toggle{display:block;background:none;border:1px solid var(--line);color:var(--ink);padding:8px 15px;font-size:12px;margin-left:auto}.goddess-shell header nav{display:none;width:100%;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;order:3}.goddess-shell header nav.open{display:grid}.goddess-reading{grid-template-columns:170px minmax(0,1fr);gap:35px}.lore-captions{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.goddess-reading{display:block}.lore-index{position:static;margin-bottom:50px;padding:0}.lore-index nav{border:0;display:flex;flex-wrap:wrap;gap:10px 22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:15px 0}.lore-index a{padding:4px 0}.goddess-row-copy{padding:30px}.goddess-row p{font-size:16px}.goddess-hero{gap:35px}.goddess-introduction h1{font-size:65px}}
+@media(max-width:760px){main.goddess-page,main.goddess-list{padding:0 6% 60px}.goddess-procession{gap:40px}.goddess-row{grid-template-columns:minmax(0,1fr)}.goddess-row:nth-child(even) .goddess-row-art{order:0}.goddess-row-copy{padding:32px 27px}.goddess-row h2{font-size:58px;margin:15px 0}.goddess-hero{grid-template-columns:minmax(0,1fr);gap:0;margin:30px 0 45px}.goddess-introduction{padding:35px 0 0}.goddess-introduction h1{font-size:76px}.goddess-lead{font-size:25px}.lore-section{grid-template-columns:22px minmax(0,1fr);gap:12px;padding-bottom:38px;margin-bottom:38px}.lore-section h2{font-size:29px}.lore-section p{font-size:16px;line-height:1.9}.goddess-main-quote{padding:35px 5px;margin:25px 0 65px}.lore-captions{grid-template-columns:minmax(0,1fr);gap:0}.lore-spread{margin-bottom:25px}.goddess-reference{margin-bottom:35px}.goddess-reference>h2{font-size:33px;margin-bottom:25px}.goddess-shell header nav{grid-template-columns:repeat(2,minmax(0,1fr))}.goddess-shell footer{flex-wrap:wrap;justify-content:center;text-align:center}}
+@media(prefers-reduced-motion:reduce){.goddess-shell{scroll-behavior:auto}.goddess-shell a,.goddess-shell button{transition:none}}
