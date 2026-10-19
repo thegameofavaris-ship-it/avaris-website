@@ -6,3 +6,11 @@
 .hero-copy .avaris-brand{width:100%;max-width:560px;margin:auto;mask-image:radial-gradient(ellipse at center,#000 42%,transparent 72%)}.hero-copy{top:24%}.hero-copy .tagline{margin-top:0}@media(max-width:700px){.hero-copy{top:auto;bottom:35px}.hero-copy .avaris-brand{max-width:350px}.hero-copy .tagline{margin-top:-8px}.avaris-home .language-switch button{min-height:44px;min-width:40px}.avaris-home .menu-toggle{min-height:44px}}
 
 .avaris-home .hero-copy>.tagline{font-size:14px;color:#f2e7d0;letter-spacing:.17em}@media(max-width:700px){.avaris-home .hero-copy>.tagline{font-size:11px}}
+
+/* Approved game logo: preserve the full artwork and soften only its outer background. */
+.hero-copy .oath-game-logo{
+  height:auto;
+  object-fit:contain;
+  -webkit-mask-image:radial-gradient(ellipse at center,#000 64%,transparent 100%);
+  mask-image:radial-gradient(ellipse at center,#000 64%,transparent 100%);
+}
