@@ -7,10 +7,10 @@
 
 .avaris-home .hero-copy>.tagline{font-size:14px;color:#f2e7d0;letter-spacing:.17em}@media(max-width:700px){.avaris-home .hero-copy>.tagline{font-size:11px}}
 
-/* Approved game logo: preserve the full artwork and soften only its outer background. */
+/* The approved logo has native alpha transparency; preserve all artwork without a CSS mask. */
 .hero-copy .oath-game-logo{
   height:auto;
   object-fit:contain;
-  -webkit-mask-image:radial-gradient(ellipse at center,#000 64%,transparent 100%);
-  mask-image:radial-gradient(ellipse at center,#000 64%,transparent 100%);
+  -webkit-mask-image:none;
+  mask-image:none;
 }
